@@ -1,9 +1,8 @@
 import React, { useContext } from "react"
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import TabNavigator from "./TabNavigator"
-import HomeScreen from "../screens/HomeScreen"
 import { Context as AuthContext } from '../context/authContext'
 import { colors } from '../configs'
+import BottomTabNavigator from "./BottomTabNavigator"
 
 const Stack = createNativeStackNavigator()
 
@@ -31,15 +30,12 @@ const AppStackScreen = () => {
     const { user } = state
 
     return (
-
         <Stack.Navigator>
-
             <Stack.Screen
                 name="Home"
-                component={user.is_registered ? TabNavigator : HomeScreen}
+                component={BottomTabNavigator}
                 options={headerOptions(`Home`, false, false)}
             />
-
         </Stack.Navigator>
     )
 }

@@ -9,13 +9,14 @@ const SplashScreen = ({ navigation }: { navigation: any }) => {
             <StatusBar backgroundColor={configs.colors.primary} />
             <View style={styles.header}>
                 <Avatar size={125} borderRadius={75} source={configs.images.logo} resizeMode={'cover'} isURL={false} anyStyles={{ borderWidth: 3, borderColor: configs.colors.primary }} />
-                <Text style={styles.slogan}>Bringing the Future of Agriculture to Your Fingertips!</Text>
+                <Text style={styles.appName}>AgriConnect</Text>
+                <Text style={styles.slogan}>Where we empower farmers for a greener tomorrow.</Text>
             </View>
             <View style={styles.footer}>
                 <TouchableOpacity style={[configs.styles.secondaryBtn, { marginVertical: 5 }]} onPress={() => { navigation.navigate('Signin') }}>
                     <Text style={[styles.btnText, { color: configs.colors.primary }]}>Login</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[configs.styles.primaryBtn]} onPress={() => { navigation.navigate('EnterPhoneNumber') }}>
+                <TouchableOpacity style={[configs.styles.primaryBtn]} onPress={() => { navigation.navigate('Home') }}>
                     <Text style={styles.btnText}>Register</Text>
                 </TouchableOpacity>
             </View>
@@ -48,12 +49,22 @@ const styles = StyleSheet.create({
         marginBottom: 40,
     },
 
+    appName: {
+        fontSize: 25,
+        color: configs.colors.primary,
+        textAlign: 'center',
+        paddingVertical: 3,
+        marginHorizontal: 80,
+        opacity: 0.9,
+        fontWeight: '600'
+    },
+
     slogan: {
         fontSize: 19,
         color: configs.colors.primary,
         textAlign: 'center',
-        paddingVertical: 15,
-        marginHorizontal: 80,
+        marginTop: 35,
+        marginHorizontal: 40,
         opacity: 0.9
     },
 
