@@ -74,15 +74,9 @@ const SigninScreen = (props: any) => {
                 style={configs.styles.registration.doctor.scrollView}
                 contentContainerStyle={configs.styles.registration.doctor.scrollContainer}
                 showsVerticalScrollIndicator={false}>
-                <View style={styles.header}>
-                    <View style={styles.imageContainer}>
-                        <Text style={{ color: configs.colors.gray, fontSize: configs.fonts.large }}>Choose Account Type</Text>
-                    </View>
-
-                </View>
-
+           
                 <View style={styles.body}>
-                    <Text style={styles.title}>{currentUserType} Login</Text>
+                    <Text style={styles.title}>Login</Text>
                     <View>
                     
                         {!isPhoneLogin &&
@@ -133,7 +127,7 @@ const SigninScreen = (props: any) => {
                         disabled={false}
                         style={configs.styles.primaryBtn}
                         onPress={() => submit()}>
-                        <Text style={configs.styles.continueText}>Continue</Text>
+                        <Text style={configs.styles.continueText}>Next</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
