@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import { APP_NAME } from '@env'
 import HomeScreen from '../../screens/HomeScreen'
 import { colors } from '../../configs'
-import CartIcon from '../../screens/Shop/CartIcon'
+import CartIcon from '../../components/shop/CartIcon'
 
 const Stack = createStackNavigator()
 

@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         borderRadius: 5,
         width: 80,
-        justifyContent: 'center', 
+        justifyContent: 'center',
         alignItems: 'center',
     },
     warningBadge: {
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         borderRadius: 5,
         width: 80,
-        justifyContent: 'center', 
+        justifyContent: 'center',
         alignItems: 'center',
     },
     badgeText: {
