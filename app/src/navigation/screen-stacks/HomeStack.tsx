@@ -2,10 +2,11 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { DrawerActions } from '@react-navigation/native'
 import { TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from 'react-native-vector-icons/FontAwesome'
 import { APP_NAME } from '@env'
 import HomeScreen from '../../screens/HomeScreen'
 import { colors } from '../../configs'
+import CartIcon from '../../screens/Shop/CartIcon'
 
 const Stack = createStackNavigator()
 
@@ -15,7 +16,7 @@ const HomeStack: any = (props: any) => {
             <Stack.Screen name="Home" component={HomeScreen}
                 options={{
                     headerStyle: {
-                        backgroundColor: colors.white,
+                        backgroundColor: colors.white
                     },
                     headerTintColor: colors.primary,
                     headerTitle: APP_NAME,
@@ -23,9 +24,14 @@ const HomeStack: any = (props: any) => {
                         <TouchableOpacity style={{ paddingVertical: 12, paddingHorizontal: 16 }} onPress={() => props.navigation.dispatch(DrawerActions.openDrawer())}>
                             <Icon name="bars" size={25} color={colors.gray} />
                         </TouchableOpacity>
+                    ),
+                    headerRight: () => (
+                        <>
+                            <CartIcon />
+                        </>
                     )
                 }}
-                 />
+            />
         </Stack.Navigator>
     )
 }

@@ -21,6 +21,7 @@ const AppDrawerStack = () => {
             drawerContent={(props) => <DrawerScreen {...props} />}>
             <Drawer.Screen name="HomeScreenStack" component={BottomTabNavigator} options={{ drawerLabel: 'Home' }}/>
             <Drawer.Screen name="HelpScreenStack" component={ContactUsStack} options={{ drawerLabel: 'Help' }} />
+
         </Drawer.Navigator>
     )
 }
