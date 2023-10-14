@@ -8,7 +8,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
 
     return (
         <View>
-            <Text>This is home screen</Text>
+
         </View>
     )
 

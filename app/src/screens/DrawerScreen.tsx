@@ -88,8 +88,8 @@ const DrawerScreen = (props: any) => {
                                         // global.currentScreenIndex = key
                                         props.navigation.navigate(item.screenToNavigate)
                                     }}>
-                                        <Icon name={item.icon} size={iconSize} style={styles.drawerIcon} color={colors.primary} />
-                                        <Text style={[styles.drawerText, { color: colors.primary }]}
+                                        <Icon name={item.icon} size={iconSize} style={styles.drawerIcon} />
+                                        <Text style={styles.drawerText}
                                         >
                                             {item.text}
                                         </Text>
@@ -103,20 +103,20 @@ const DrawerScreen = (props: any) => {
                         <View style={{ width: '100%' }}>
                             <TouchableOpacity style={styles.drawerItem}
                                 onPress={() => share()}>
-                                <Icon name="share-alt" size={iconSize} style={styles.drawerIcon} color={colors.primary} />
-                                <Text style={[styles.drawerText, { color: colors.primary }]}>Share</Text>
+                                <Icon name="share-alt" size={iconSize} style={styles.drawerIcon} />
+                                <Text style={styles.drawerText}>Share</Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity style={styles.drawerItem}
                                 onPress={() => props.navigation.navigate("About")}>
-                                <Icon name="info-circle" size={iconSize} style={styles.drawerIcon} color={colors.primary} />
-                                <Text style={[styles.drawerText, { color: colors.primary }]}>About us</Text>
+                                <Icon name="info-circle" size={iconSize} style={styles.drawerIcon} />
+                                <Text style={styles.drawerText}>About us</Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity style={styles.drawerItem}
                                 onPress={() => props.navigation.navigate("Feedback")}>
-                                <Icon name="comments" size={iconSize} style={styles.drawerIcon} color={colors.primary} />
-                                <Text style={[styles.drawerText, { color: colors.primary }]}>Send Feedback</Text>
+                                <Icon name="comments" size={iconSize} style={styles.drawerIcon} />
+                                <Text style={styles.drawerText}>Send Feedback</Text>
                             </TouchableOpacity>
 
                             <View style={styles.divider}></View>
@@ -124,8 +124,8 @@ const DrawerScreen = (props: any) => {
                             <TouchableOpacity style={styles.drawerItem} onPress={() => {
                                 props.navigation.navigate('Settings')
                             }}>
-                                <FontAwesome name="cog" size={iconSize * 1.2} style={styles.drawerIcon} color={colors.primary} />
-                                <Text style={[styles.drawerText, { color: colors.primary }]}>Settings</Text>
+                                <FontAwesome name="cog" size={iconSize * 1.2} style={styles.drawerIcon} />
+                                <Text style={styles.drawerText}>Settings</Text>
                             </TouchableOpacity>
 
                         </View>
@@ -169,9 +169,11 @@ const styles = StyleSheet.create({
     },
     drawerText: {
         fontSize: 17,
+        color: colors.gray
     },
     drawerIcon: {
         marginLeft: 20,
         marginRight: 20,
+        color: colors.gray
     }
 })

@@ -21,7 +21,7 @@ const HomeStack: any = (props: any) => {
                     headerTitle: APP_NAME,
                     headerLeft: () => (
                         <TouchableOpacity style={{ paddingVertical: 12, paddingHorizontal: 16 }} onPress={() => props.navigation.dispatch(DrawerActions.openDrawer())}>
-                            <Icon name="bars" size={25} color={colors.primary} />
+                            <Icon name="bars" size={25} color={colors.gray} />
                         </TouchableOpacity>
                     )
                 }}
