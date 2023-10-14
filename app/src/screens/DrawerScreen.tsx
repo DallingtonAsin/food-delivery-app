@@ -7,6 +7,7 @@ import { DrawerContentScrollView } from '@react-navigation/drawer'
 import Share from "react-native-share"
 import { APP_NAME } from '@env'
 import { colors } from '../configs'
+import Icon5 from 'react-native-vector-icons/FontAwesome5'
 
 const url = `https://pivosoft.com`
 const title = `Download ${APP_NAME}`
@@ -36,8 +37,8 @@ const DrawerScreen = (props: any) => {
         },
 
         {
-            icon: 'cloud-rain',
-            text: 'Weather',
+            icon: 'shopping-cart',
+            text: 'My Orders',
             screenToNavigate: 'Weather',
         },
     ]
@@ -57,16 +58,22 @@ const DrawerScreen = (props: any) => {
                 <View style={styles.drawerContent}>
 
                     <View style={styles.userInfoSection}>
-                        <Avatar.Icon size={115} icon="folder" />
+                        <Avatar.Icon
+                            size={100}
+                            icon={({ size, color }) => (
+                                <Icon name="user" size={size} color={colors.white} />
+                            )}
+                            style={{ backgroundColor: colors.old_gray }}
+                        />
                         <Text style={{
                             marginTop: 5, fontSize: 18,
                             fontWeight: 'bold',
-                            color: colors.primary,
+                            color: colors.black,
                             opacity: 0.8
                         }}>
                             {`Dallington`} {`Asingwire`}
                         </Text>
-                        <Text style={{ marginBottom: 15, fontSize: 16, color: colors.primary, opacity: 0.7 }}>{`+256774014727`}</Text>
+                        <Text style={{ marginBottom: 15, fontSize: 16, color: colors.black, opacity: 0.7 }}>{`+256774014727`}</Text>
                     </View>
 
 

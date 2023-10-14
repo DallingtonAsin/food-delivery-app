@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { CustomTabComponent } from '../components/navigation/CustomTabComponent'
 import { MultiBarProvider, BottomTabBarWrapper } from 'react-native-multibar'
-import HomeScreen from '../screens/HomeScreen'
+import HomeStack from './screen-stacks/HomeStack'
 
 const BottomTabNavigator = () => {
 
@@ -27,6 +27,7 @@ const BottomTabNavigator = () => {
           </BottomTabBarWrapper>
         )}
         screenOptions={{
+          headerShown: false,
           tabBarShowLabel: true,
           tabBarActiveTintColor: configs.colors.primary,
           tabBarInactiveTintColor: configs.colors.dark,
@@ -42,19 +43,19 @@ const BottomTabNavigator = () => {
 
         <Tab.Screen
           name="HomeTabScreen"
-          component={HomeScreen}
+          component={HomeStack}
           options={CustomTabComponent({ headerShown: false, headerTitle: 'Home', tabBarLabel: 'Home', tabIcon: 'home', onPressBackButton: navigateBack })}
         />
 
         <Tab.Screen
           name="ShopTabScreen"
-          component={HomeScreen}
-          options={CustomTabComponent({ headerShown: false, headerTitle: 'Shop', tabBarLabel: 'Shop', tabIcon: 'home', onPressBackButton: navigateBack })}
+          component={HomeStack}
+          options={CustomTabComponent({ headerShown: false, headerTitle: 'Shop', tabBarLabel: 'Shop', tabIcon: 'store', onPressBackButton: navigateBack })}
         />
 
         <Tab.Screen
           name="HelpTabScreen"
-          component={HomeScreen}
+          component={HomeStack}
           options={CustomTabComponent({ headerShown: false, headerTitle: 'Help', tabBarLabel: 'Help', tabIcon: 'question-circle', onPressBackButton: navigateBack })}
         />
 

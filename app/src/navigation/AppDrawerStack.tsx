@@ -10,15 +10,17 @@ const Drawer = createDrawerNavigator()
 const AppDrawerStack = () => {
     return (
         <Drawer.Navigator
+            initialRouteName="Home"
             screenOptions={{
+                headerShown: false,
                 drawerStyle: {
                     backgroundColor: '#c6cbef',
                     width: Dimensions.get('window').width - 100,
                 }
             }}
             drawerContent={(props) => <DrawerScreen {...props} />}>
-            <Drawer.Screen name="Home" component={BottomTabNavigator} />
-            <Drawer.Screen name="Help" component={ContactUsStack} options={{ drawerLabel: 'Help' }} />
+            <Drawer.Screen name="HomeScreenStack" component={BottomTabNavigator} options={{ drawerLabel: 'Home' }}/>
+            <Drawer.Screen name="HelpScreenStack" component={ContactUsStack} options={{ drawerLabel: 'Help' }} />
         </Drawer.Navigator>
     )
 }
