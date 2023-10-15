@@ -15,7 +15,7 @@ const HomeScreen = (props: any) => {
     }, [])
 
     return (
-        <SafeAreaView className="flex-1 bg-white">
+        <SafeAreaView className="flex-1 mt-3">
             <StatusBar
                 barStyle="dark-content"
             />
