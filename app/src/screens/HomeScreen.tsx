@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, StatusBar, Image, TextInput, ScrollView } from 'react-native'
-import * as configs from '../configs';
-import Avatar from '../components/Avatar';
 import * as Icon from "react-native-feather"
 import { themeColors } from '../configs/themes'
-import Categories from '../components/Categories';
+import Categories from '../components/Categories'
+import { featured } from '../configs/data'
+import FeaturedRow from '../components/FeaturedRow'
 
 const HomeScreen = (props: any) => {
+
+    const [featuredCategories, setFeaturedCategories] = useState<any>([])
+
+    useEffect(() => {
+        setFeaturedCategories(featured)
+    }, [])
 
     return (
         <SafeAreaView className="flex-1 bg-white">
@@ -37,6 +43,22 @@ const HomeScreen = (props: any) => {
                 }}>
 
                 <Categories />
+
+                {/* featured  */}
+                <View className="mt-5">
+                    {
+                        [featured, featured, featured].map((item, index) => {
+                            return (
+                                <FeaturedRow
+                                    key={index}
+                                    title={item.title}
+                                    restaurants={item.restaurants}
+                                    description={item.description}
+                                />
+                            )
+                        })
+                    }
+                </View>
 
             </ScrollView>
 
