@@ -5,6 +5,7 @@ import DrawerScreen from '../screens/DrawerScreen'
 import BottomTabNavigator from './BottomTabNavigator'
 import ContactUsStack from './screen-stacks/ContactUsScreenStack'
 import RestaurantScreen from '../screens/RestaurantScreen'
+import CartScreen from '../screens/CartScreen'
 
 const Drawer = createDrawerNavigator()
 
@@ -20,9 +21,10 @@ const AppDrawerStack = () => {
                 }
             }}
             drawerContent={(props) => <DrawerScreen {...props} />}>
-            <Drawer.Screen name="HomeScreenStack" component={BottomTabNavigator} options={{ drawerLabel: 'Home' }}/>
-            <Drawer.Screen name="HelpScreenStack" component={ContactUsStack} options={{ drawerLabel: 'Help' }} />
+            <Drawer.Screen name="Home" component={BottomTabNavigator} options={{ drawerLabel: 'Home' }} />
+            <Drawer.Screen name="Help" component={ContactUsStack} options={{ drawerLabel: 'Help' }} />
             <Drawer.Screen name="Restaurant" component={RestaurantScreen} options={{ drawerLabel: 'Restaurant' }} />
+            <Drawer.Screen name="Cart" component={CartScreen} options={{ drawerLabel: 'Restaurant' }} />
         </Drawer.Navigator>
     )
 }

@@ -32,7 +32,7 @@ const AppStackScreen = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                name="Home"
+                name="HomeScreen"
                 component={BottomTabNavigator}
                 options={headerOptions(`Home`, false, false)}
             />

@@ -1,6 +1,6 @@
 import { useRoute } from "@react-navigation/native"
 import React from "react"
-import { View, Text, ScrollView, Image } from "react-native"
+import { View, Text, ScrollView, Image, StatusBar } from "react-native"
 import { TouchableOpacity } from "react-native-gesture-handler"
 import * as Icon from "react-native-feather"
 import { themeColors } from "../configs/themes"
@@ -19,13 +19,13 @@ const RestaurantScreen = () => {
     return (
         <View>
             <RCartIcon />
+            <StatusBar barStyle={'light-content'} />
             <ScrollView>
                 <View className="relative">
                     <Image className="w-full h-72" source={item.image} />
                     <TouchableOpacity
                         onPress={() => navigation.goBack()}
-                        className="absolute top-14 left-4 bg-gray-50 p-2 rounded-full shadow"
-                    >
+                        className="absolute top-14 left-4 bg-gray-50 p-2 rounded-full shadow">
                         <Icon.ArrowLeft strokeWidth={3} stroke={themeColors.bgColor(1)} />
                     </TouchableOpacity>
                 </View>
