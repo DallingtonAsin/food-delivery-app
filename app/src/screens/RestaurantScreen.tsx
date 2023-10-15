@@ -7,6 +7,7 @@ import { themeColors } from "../configs/themes"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import DishRow from "../components/DishRow"
+import RCartIcon from "../components/RCartIcon"
 
 const RestaurantScreen = () => {
     const { params } = useRoute()
@@ -17,6 +18,7 @@ const RestaurantScreen = () => {
 
     return (
         <View>
+            <RCartIcon />
             <ScrollView>
                 <View className="relative">
                     <Image className="w-full h-72" source={item.image} />
