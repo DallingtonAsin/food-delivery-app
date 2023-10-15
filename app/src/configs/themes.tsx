@@ -1,58 +1,39 @@
-import { Platform } from "react-native"
-import * as config from './'
+type Color = {
+  text: string;
+  bgColor: (opacity: number) => string;
+};
 
-export const themeColor = config.colors.primary
-export const lightThemeColor = '#f2f7f7'
-const disabledColor = 'grey'
-
-const calenderTheme = {
-  arrowColor: config.colors.primary,
-  arrowStyle: { padding: 0 },
-  monthTextColor: 'black',
-  textMonthFontSize: 18,
-  textMonthFontFamily: 'HelveticaNeue',
-  textMonthFontWeight: 'bold' as 'bold',
-  textSectionTitleColor: 'black',
-  textDayHeaderFontSize: 14,
-  textDayHeaderFontFamily: 'HelveticaNeue',
-  textDayHeaderFontWeight: 'normal' as 'normal',
-  textDayFontSize: 18,
-  textDayFontFamily: 'HelveticaNeue',
-  textDayFontWeight: '500' as '500',
-  textDayStyle: { marginTop: Platform.OS === 'android' ? 2 : 4 },
-  selectedDayBackgroundColor: config.colors.gray,
-  selectedDayTextColor: config.colors.white,
-  textDisabledColor: disabledColor,
-  dotColor: themeColor,
-  selectedDotColor: 'white',
-  disabledDotColor: disabledColor,
-  dotStyle: { marginTop: -2 },
-  textSectionTitleDisabledColor: '#d9e1e8'
-}
-
-const streamChatThemes = {
-  chat: {
-    channelPreview: {
-      container: {
-        backgroundColor: 'red',
-      },
-    }
+const pallete: Color[] = [
+  {
+    // orange
+    text: '#f97316',
+    bgColor: (opacity) => `rgba(251, 146, 60, ${opacity})`,
   },
+  {
+    // dark gray
+    text: '#334155',
+    bgColor: (opacity) => `rgba(30, 41, 59, ${opacity})`,
+  },
+  {
+    // purple
+    text: '#7c3aed',
+    bgColor: (opacity) => `rgba(167, 139, 250, ${opacity})`,
+  },
+  {
+    // green
+    text: '#009950',
+    bgColor: (opacity) => `rgba(0, 179, 89, ${opacity})`,
+  },
+  {
+    // teal
+    text: '#14b8a6',
+    bgColor: (opacity) => `rgba(45, 212, 191, ${opacity})`,
+  },
+  {
+    // red
+    text: '#dc2626',
+    bgColor: (opacity) => `rgba(248, 113, 113, ${opacity})`,
+  },
+];
 
-  message: {
-    messageSimple: {
-      content: {
-        markdown: {
-          text: {
-            fontSize: 16,
-          },
-          inlineCode: {
-            fontSize: 10,
-          },
-        },
-      },
-    },
-  }
-}
-
-export { calenderTheme, streamChatThemes }
+export const themeColors: Color = { ...pallete[0] }

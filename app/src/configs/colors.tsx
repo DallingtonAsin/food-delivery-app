@@ -1,5 +1,11 @@
 export const colors = {
-    primary: '#5cb85c', // '#a50d12', // '#1b4532', // '#0085a1' , // '#5cb85c', '#920053', '#c84648'
+    primary: '#f97316', // '#a50d12', // '#1b4532', // '#0085a1' , // '#5cb85c', '#920053', '#c84648',
+    orange: '#334155',
+    darkgray: '#f97316', // '#ff8414'
+    purple: '#7c3aed',
+    green: '#009950', // '#61ca8d'
+    teal: '#14b8a6',
+    red: '#dc2626',
     primary1: '#1b4532',
     yellow: '#f8b718',
     secondary: '#1b4532',
@@ -14,13 +20,11 @@ export const colors = {
     dark: '#0c0c0c',
     denger: '#E81A1A',
     pink: "#dc3545",
-    red: '#FF0000',
     prime: 'rgb(30, 30, 40)', // "#0275d8",
     success: '#5cb85c',
     warning: '#f0ad4e',
     info: "#5bc0de",
     danger: '#a50d12', // '#d9534f', // '#A94442',
-    purple: '#800080',
     inverse: '#292b2c',
     faded: "#f7f7f7",
     silver: '#ccc',
@@ -28,7 +32,6 @@ export const colors = {
     confirmedColor: '#4dc8bd',
     pendingBg: '#e8eef0',
     pendingColor: '#215d67',
-    orange: '#ff8414',
     paleOrange: '#eec6b9',
     grey: '#555',
     terms: '#2196f3',
@@ -37,7 +40,6 @@ export const colors = {
     disabled: '#D3D3D3',
     audioCallbg: '#1f2c34',
     notificationbg: '#f6f7fb',
-    green: '#61ca8d',
     paleBlue: '#85a7b0',
     paleSilver: '#fafafa',
     paleBlue1: '#02b8f9',
