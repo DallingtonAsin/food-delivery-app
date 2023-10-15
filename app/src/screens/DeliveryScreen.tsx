@@ -7,13 +7,20 @@ import { themeColors } from "../configs/themes"
 import { TouchableOpacity } from "react-native-gesture-handler"
 import * as Icon from "react-native-feather"
 import { colors } from "../configs"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { selectRestaurant } from "../redux/slices/restaurantSlice"
+import { emptyCart } from "../redux/slices/cartSlice"
 
 const DeliveryScreen = () => {
-  
+
   const restaurant = useSelector(selectRestaurant)
   const navigation = useNavigation<NativeStackNavigationProp<any>>()
+  const dispatch = useDispatch()
+
+  const cancelOrder = () => {
+    dispatch(emptyCart())
+    navigation.navigate('Home')
+  }
 
   return (
     <View className="flex-1">
@@ -73,7 +80,7 @@ const DeliveryScreen = () => {
               <Icon.Phone fill={themeColors.bgColor(1)} stroke={themeColors.bgColor(1)} strokeWidth={1} />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Home')}
+              onPress={() => cancelOrder()}
               className="bg-white p-2 rounded-full">
               <Icon.X stroke={colors.red} strokeWidth={4} />
             </TouchableOpacity>

@@ -24,7 +24,7 @@ const cartSlice = createSlice({
             state.items = newCart
         },
 
-        emptyCart: (state, action) => {
+        emptyCart: (state) => {
             state.items = []
         },
     }
