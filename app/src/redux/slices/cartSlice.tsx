@@ -15,9 +15,9 @@ const cartSlice = createSlice({
 
         removeFromCart: (state, action) => {
             let newCart = [...state.items]
-            let itemIdex = state.items.findIndex((item: any) => item.id === action.payload.id)
+            let itemIdex = state.items.findIndex((item: any) => item.id == action.payload.id)
             if (itemIdex >= 0) {
-                newCart.slice(itemIdex, 1)
+                newCart.splice(itemIdex, 1)
             } else {
                 console.log("Cannot remove item that is not in cart")
             }

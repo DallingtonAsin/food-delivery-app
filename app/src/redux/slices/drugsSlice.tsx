@@ -14,7 +14,7 @@ const drugSlice = createSlice({
     initialState: initialState,
     reducers: {
 
-        addToCart: (state, action) => {
+        addDrugToCart: (state, action) => {
             const itemPresent = state.cart.find((item: Drug) => item.id === action.payload.id);
             if (itemPresent) {
                 itemPresent.quantity++;
@@ -23,9 +23,9 @@ const drugSlice = createSlice({
             }
         },
 
-        removeFromCart: (state, action) => {
-            const removeFromCart = state.cart.filter((item: Drug) => item.id !== action.payload.id);
-            state.cart = removeFromCart;
+        removeDrugFromCart: (state, action) => {
+            const newCart = state.cart.filter((item: Drug) => item.id !== action.payload.id);
+            state.cart = newCart;
         },
 
         incrementQuantity: (state, action) => {
@@ -39,8 +39,8 @@ const drugSlice = createSlice({
             const itemPresent = state.cart.find((item: Drug) => item.id === action.payload.id);
             if (itemPresent) {
                 if (itemPresent.quantity == 1) {
-                    const removeFromCart = state.cart.filter((item: Drug) => item.id !== action.payload.id);
-                    state.cart = removeFromCart;
+                    const newCart = state.cart.filter((item: Drug) => item.id !== action.payload.id);
+                    state.cart = newCart;
                 } else {
                     itemPresent.quantity--;
                 }
@@ -49,7 +49,7 @@ const drugSlice = createSlice({
     }
 });
 
-export const { addToCart, removeFromCart, incrementQuantity, decrementQuantity } = drugSlice.actions;
+export const { addDrugToCart, removeDrugFromCart, incrementQuantity, decrementQuantity } = drugSlice.actions;
 
 export const selectCart = (state: any) => state.drugs.cart;
 
