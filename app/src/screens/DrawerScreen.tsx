@@ -1,13 +1,13 @@
 import React from 'react'
 import { View, TouchableOpacity, StyleSheet } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Iconf from 'react-native-vector-icons/FontAwesome5'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { Avatar, Text } from 'react-native-paper'
 import { DrawerContentScrollView } from '@react-navigation/drawer'
 import Share from "react-native-share"
 import { APP_NAME } from '@env'
 import { colors } from '../configs'
-import Icon5 from 'react-native-vector-icons/FontAwesome5'
+import * as Icon from "react-native-feather"
 
 const url = `https://pivosoft.com`
 const title = `Download ${APP_NAME}`
@@ -61,7 +61,7 @@ const DrawerScreen = (props: any) => {
                         <Avatar.Icon
                             size={100}
                             icon={({ size, color }) => (
-                                <Icon name="user" size={size} color={colors.white} />
+                                <Icon.User height={size} width={size} stroke={colors.white} />
                             )}
                             style={{ backgroundColor: colors.old_gray }}
                         />
@@ -88,7 +88,7 @@ const DrawerScreen = (props: any) => {
                                         // global.currentScreenIndex = key
                                         props.navigation.navigate(item.screenToNavigate)
                                     }}>
-                                        <Icon name={item.icon} size={iconSize} style={styles.drawerIcon} />
+                                        <Iconf name={item.icon} size={iconSize} style={styles.drawerIcon} />
                                         <Text style={styles.drawerText}
                                         >
                                             {item.text}
@@ -103,19 +103,19 @@ const DrawerScreen = (props: any) => {
                         <View style={{ width: '100%' }}>
                             <TouchableOpacity style={styles.drawerItem}
                                 onPress={() => share()}>
-                                <Icon name="share-alt" size={iconSize} style={styles.drawerIcon} />
+                                <Iconf name="share-alt" size={iconSize} style={styles.drawerIcon} />
                                 <Text style={styles.drawerText}>Share</Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity style={styles.drawerItem}
                                 onPress={() => props.navigation.navigate("About")}>
-                                <Icon name="info-circle" size={iconSize} style={styles.drawerIcon} />
+                                <Iconf name="info-circle" size={iconSize} style={styles.drawerIcon} />
                                 <Text style={styles.drawerText}>About us</Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity style={styles.drawerItem}
                                 onPress={() => props.navigation.navigate("Feedback")}>
-                                <Icon name="comments" size={iconSize} style={styles.drawerIcon} />
+                                <Iconf name="comments" size={iconSize} style={styles.drawerIcon} />
                                 <Text style={styles.drawerText}>Send Feedback</Text>
                             </TouchableOpacity>
 
