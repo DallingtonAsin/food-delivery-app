@@ -5,11 +5,12 @@ import { themeColors } from "../configs/themes"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { colors } from "../configs"
-import { featured } from "../configs/data"
+import { useSelector } from "react-redux"
+import { selectRestaurant } from "../redux/slices/restaurantSlice"
 
 const CartScreen = () => {
 
-    const restaurant = featured.restaurants[0]
+    const restaurant = useSelector(selectRestaurant)
     const navigation = useNavigation<NativeStackNavigationProp<any>>()
 
     return (
@@ -48,7 +49,7 @@ const CartScreen = () => {
                 }}
                 className="pt-5">
                 {
-                    restaurant.dishes.map((dish, index) => {
+                    restaurant.dishes.map((dish: any, index: number) => {
                         return (
                             <View
                                 key={index}

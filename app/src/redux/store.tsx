@@ -1,17 +1,22 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import drugsReducer from './reducers/drugsSlice'
-import notificationReducer from './reducers/notificationSlice'
-import streamChannelReducer from './reducers/streamChannelSlice'
-import accountBalanceReducer  from './reducers/accountBalanceSlice'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useDispatch } from 'react-redux'
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+
+import cartSlice from './slices/cartSlice'
+import restaurantSlice from './slices/restaurantSlice'
+import drugsReducer from './slices/drugsSlice'
+import notificationReducer from './slices/notificationSlice'
+import streamChannelReducer from './slices/streamChannelSlice'
+import accountBalanceReducer  from './slices/accountBalanceSlice'
 
 const rootReducer = combineReducers({
   drugs: drugsReducer,
   streamChannel: streamChannelReducer,
   notifications: notificationReducer,
-  balance: accountBalanceReducer
+  balance: accountBalanceReducer,
+  cart: cartSlice,
+  restaurant: restaurantSlice
 })
 
 const persistConfig = {

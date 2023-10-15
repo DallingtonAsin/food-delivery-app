@@ -7,9 +7,12 @@ import { themeColors } from "../configs/themes"
 import { TouchableOpacity } from "react-native-gesture-handler"
 import * as Icon from "react-native-feather"
 import { colors } from "../configs"
+import { useSelector } from "react-redux"
+import { selectRestaurant } from "../redux/slices/restaurantSlice"
 
 const DeliveryScreen = () => {
-  const restaurant = featured.restaurants[0]
+  
+  const restaurant = useSelector(selectRestaurant)
   const navigation = useNavigation<NativeStackNavigationProp<any>>()
 
   return (
