@@ -61,6 +61,22 @@ interface Notification {
     is_appointment: boolean
 }
 
+interface Category{
+    _id: string | number | any,
+    name: string,
+    image: any
+
+}
+
+type Dish = {
+    _id: number,
+    name: string;
+    price: number;
+    image: any;
+};
+
+type GroupedItems = Record<string, Dish[]>;
+
 export type {
-    AppAction, SignedinUser, Drug, Notification
+    AppAction, SignedinUser, Drug, Notification, Category, GroupedItems
 }

@@ -6,4 +6,5 @@ declare module '@env' {
     export const MINOR_VERSION: string;
     export const PATCH_VERSION: string;
     export const PRE_RELEASE: string;
+    export const SANITY_PROJECT_ID: string;
 }

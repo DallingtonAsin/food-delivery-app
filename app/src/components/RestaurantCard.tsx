@@ -3,6 +3,7 @@ import * as Icon from "react-native-feather"
 import { themeColors } from "../configs/themes"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { urlFor } from "../server/sanity"
 
 const RestaurantCard = ({ item }: { item: any }) => {
 
@@ -16,7 +17,7 @@ const RestaurantCard = ({ item }: { item: any }) => {
                     shadowRadius: 7
                 }}
                 className="mr-6 bg-white rounded-3xl shadow-lg">
-                <Image className="h-36 w-64 rounded-t-3xl" source={item.image} />
+                <Image className="h-36 w-64 rounded-t-3xl" source={{ uri: urlFor(item.image).url() }} />
                 <View className="px-3 pb-4 space-y-2">
                     <Text className="text-lg font-bold pt-2">{item.name}</Text>
                     <View className="flex-row items-center space-x-1">
@@ -24,7 +25,7 @@ const RestaurantCard = ({ item }: { item: any }) => {
                         <Text className="text-xs">
                             <Text className="text-green-700">{item.stars}</Text>
                             <Text className="text-gray-700">
-                                {item.reviews} . <Text className="font-semibold">{item.category}</Text>
+                                {item.reviews} . <Text className="font-semibold">{item?.type?.name}</Text>
                             </Text>
                         </Text>
                     </View>

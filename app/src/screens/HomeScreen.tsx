@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, StatusBar, Image, TextInput, ScrollView } from 'react-native'
+import { SafeAreaView, View, Text, StatusBar, TextInput, ScrollView } from 'react-native'
 import * as Icon from "react-native-feather"
 import { themeColors } from '../configs/themes'
 import Categories from '../components/Categories'
 import { featured } from '../configs/data'
 import FeaturedRow from '../components/FeaturedRow'
+import { getFeaturedRestaurants } from '../server/api'
 
 const HomeScreen = (props: any) => {
 
-    const [featuredCategories, setFeaturedCategories] = useState<any>([])
+    const [featuredRestaurants, setFeaturedRestaurants] = useState<any>([])
 
     useEffect(() => {
-        setFeaturedCategories(featured)
+        getFeaturedRestaurants().then((restaurants: any) => {
+            setFeaturedRestaurants(restaurants)
+        })
     }, [])
 
     return (
@@ -46,11 +49,11 @@ const HomeScreen = (props: any) => {
                 {/* featured  */}
                 <View className="mt-5">
                     {
-                        [featured, featured, featured].map((item, index) => {
+                        featuredRestaurants.map((item: any, index: number) => {
                             return (
                                 <FeaturedRow
                                     key={index}
-                                    title={item.title}
+                                    title={item.name}
                                     restaurants={item.restaurants}
                                     description={item.description}
                                 />
