@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { useSelector } from "react-redux"
 import { selectCartItems, selectCartTotal } from "../redux/slices/cartSlice"
+import { thousandFormatter } from "../utils"
 
 const RCartIcon = () => {
 
@@ -27,7 +28,7 @@ const RCartIcon = () => {
                     View Cart
                 </Text>
                 <Text className="font-extrabold text-white text-lg">
-                    ${cartTotalPrice}
+                    ${thousandFormatter(cartTotalPrice)}
                 </Text>
             </TouchableOpacity>
         </View>
