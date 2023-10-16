@@ -19,7 +19,7 @@
     "postinstall": "npx typesync",
     "start-sanity": "sanity init",
     "debug-build": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/ && cd android && ./gradlew assembleDebug && cd ..",
-    "release-first": "cd android  && ./gradlew clean && cd .. && rm -rf android/app/src/main/res/raw/* && rm -rf android/app/src/main/res/drawable-* && cd android && ./gradlew assembleRelease && cd ..",
+    "release": "cd android  && ./gradlew clean && cd .. && rm -rf android/app/src/main/res/raw/* && rm -rf android/app/src/main/res/drawable-* && cd android && ./gradlew assembleRelease && cd ..",
     "release-build": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && rm -rf android/app/src/main/res/drawable-* && rm -rf android/app/src/main/res/raw/* && cd android && ./gradlew assembleRelease && cd ..",
     "android:dev": "react-native run-android --mode=developmentdebug",
     "android:dev-release": "react-native run-android --mode=developmentrelease",
