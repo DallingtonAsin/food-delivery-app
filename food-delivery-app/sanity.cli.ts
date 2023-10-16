@@ -1,9 +1,9 @@
 import { defineCliConfig } from 'sanity/cli'
-require('dotenv').config()
+import { projectId } from './src/environment'
 
 export default defineCliConfig({
   api: {
-    projectId: `${process.env.PROJECT_ID}`,
+    projectId: `${projectId}`,
     dataset: 'production'
   }
 })
