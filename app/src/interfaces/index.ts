@@ -61,6 +61,13 @@ interface Notification {
     is_appointment: boolean
 }
 
+interface Category{
+    _id: string | number | any,
+    name: string,
+    image: any
+
+}
+
 export type {
-    AppAction, SignedinUser, Drug, Notification
+    AppAction, SignedinUser, Drug, Notification, Category
 }
