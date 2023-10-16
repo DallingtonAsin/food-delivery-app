@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator()
 
 function App(): JSX.Element {
 
-  const [token, setToken] = useState('xxx')
+  const [token, setToken] = useState('myrandomToken')
 
   return (
     <NavigationContainer>
