@@ -1,10 +1,8 @@
-import { Image, Text, View } from "react-native"
-import { featured } from "../configs/data"
+import { Image, Text, View, TouchableOpacity } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import MapView, { Marker } from "react-native-maps"
 import { themeColors } from "../configs/themes"
-import { TouchableOpacity } from "react-native-gesture-handler"
 import * as Icon from "react-native-feather"
 import { colors } from "../configs"
 import { useDispatch, useSelector } from "react-redux"

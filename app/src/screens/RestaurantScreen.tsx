@@ -1,7 +1,6 @@
 import { useRoute } from "@react-navigation/native"
 import React, { useEffect } from "react"
-import { View, Text, ScrollView, Image, StatusBar } from "react-native"
-import { TouchableOpacity } from "react-native-gesture-handler"
+import { View, Text, TouchableOpacity, ScrollView, Image, StatusBar } from "react-native"
 import * as Icon from "react-native-feather"
 import { themeColors } from "../configs/themes"
 import { useNavigation } from "@react-navigation/native"

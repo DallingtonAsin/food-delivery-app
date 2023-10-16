@@ -1,5 +1,4 @@
-import { Image, ScrollView, Text, View } from "react-native"
-import { TouchableOpacity } from "react-native-gesture-handler"
+import { Image, ScrollView, TouchableOpacity, Text, View } from "react-native"
 import * as Icon from "react-native-feather"
 import { themeColors } from "../configs/themes"
 import { useNavigation } from "@react-navigation/native"
@@ -46,7 +45,7 @@ const CartScreen = () => {
                 <TouchableOpacity
                     onPress={() => navigation.goBack()}
                     style={{ backgroundColor: themeColors.bgColor(1) }}
-                    className="absolute z-10 rounded-full p-1 shadow top-2 left-4"
+                    className="absolute z-10 rounded-full p-1 shadow top-5 left-4"
                 >
                     <Icon.ArrowLeft strokeWidth={3} stroke={colors.white} />
                 </TouchableOpacity>
