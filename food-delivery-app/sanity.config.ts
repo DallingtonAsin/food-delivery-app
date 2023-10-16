@@ -2,13 +2,13 @@ import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
-require('dotenv').config()
+import { projectId } from './src/environment'
 
 export default defineConfig({
   name: 'default',
   title: 'food delivery app',
 
-  projectId: `${process.env.PROJECT_ID}`,
+  projectId: `${projectId}`,
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],
