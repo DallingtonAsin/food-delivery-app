@@ -1,4 +1,4 @@
-import { View, Text, Image, Dimensions, StyleSheet } from "react-native"
+import { View, Text, Image, Dimensions, StyleSheet, StatusBar, TouchableOpacity } from "react-native"
 import { colors } from "../configs"
 import Onboarding from 'react-native-onboarding-swiper'
 import LottieView from 'lottie-react-native'
@@ -15,14 +15,27 @@ const OnboardingScreen = () => {
         navigation.navigate('Home')
     }
 
+    const DoneButton = ({ ...props }) => (
+        <TouchableOpacity
+            {...props}
+            style={styles.doneButton}
+            onPress={handleDone}
+        >
+            <Text>Done</Text>
+        </TouchableOpacity>
+    )
+
     return (
         <View
             className="flex-1"
-            style={{ backgroundColor: colors.white }}
-        >
+            style={{ backgroundColor: colors.white }}>
+            <StatusBar barStyle={'light-content'} />
+
             <Onboarding
                 onDone={handleDone}
                 onSkip={handleDone}
+                DoneButtonComponent={DoneButton}
+                bottomBarHighlight={false}
                 containerStyles={{
                     paddingHorizontal: 15
                 }}
@@ -33,7 +46,7 @@ const OnboardingScreen = () => {
                             <View style={styles.lottie}>
                                 <LottieView
                                     style={styles.lottieView}
-                                    source={require('../../assets/animations/boost.json')} />
+                                    source={require('../../assets/animations/boost.json')} autoPlay loop/>
                             </View>
                         ),
                         title: 'Boost Productivity',
@@ -45,7 +58,7 @@ const OnboardingScreen = () => {
                             <View style={styles.lottie}>
                                 <LottieView
                                     style={styles.lottieView}
-                                    source={require('../../assets/animations/work.json')} />
+                                    source={require('../../assets/animations/work.json')} autoPlay loop />
                             </View>
                         ),
                         title: 'Work seemlessly',
@@ -57,7 +70,7 @@ const OnboardingScreen = () => {
                             <View style={styles.lottie}>
                                 <LottieView
                                     style={styles.lottieView}
-                                    source={require('../../assets/animations/achieve.json')} />
+                                    source={require('../../assets/animations/achieve.json')} autoPlay loop />
                             </View>
                         ),
                         title: 'Achieve Higher Goals',
@@ -79,5 +92,8 @@ const styles = StyleSheet.create({
     },
     lottieView: {
         flex: 1
+    },
+    doneButton: {
+        padding: 20
     }
 })
