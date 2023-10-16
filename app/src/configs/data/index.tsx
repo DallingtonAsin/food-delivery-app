@@ -41,7 +41,7 @@ export const featured = {
         {
             id: 1,
             name: 'Papa Johns',
-            image: require('../../../assets/images/pizza.png'),
+            image: require('../../../assets/images/pizza.jpg'),
             description: 'Hot and spicy pizzas',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -55,21 +55,21 @@ export const featured = {
                     name: 'pizza',
                     description: 'cheezy garlic pizza',
                     price: 10,
-                    image: require('../../../assets/images/pizzaDish.png')
+                    image: require('../../../assets/images/pizzaDish.jpg')
                 },
                 {
                     id: 2,
                     name: 'pizza',
                     description: 'cheezy garlic pizza',
                     price: 10,
-                    image: require('../../../assets/images/pizzaDish.png')
+                    image: require('../../../assets/images/pizzaDish.jpg')
                 },
                 {
                     id: 3,
                     name: 'pizza',
                     description: 'cheezy garlic pizza',
                     price: 10,
-                    image: require('../../../assets/images/pizzaDish.png')
+                    image: require('../../../assets/images/pizzaDish.jpg')
                 },
             ]
 
@@ -77,7 +77,7 @@ export const featured = {
         {
             id: 2,
             name: 'Papa Johns',
-            image: require('../../../assets/images/pizza.png'),
+            image: require('../../../assets/images/pizza.jpg'),
             description: 'Hot and spicy pizzas',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -91,21 +91,21 @@ export const featured = {
                     name: 'pizza',
                     description: 'cheezy garlic pizza',
                     price: 10,
-                    image: require('../../../assets/images/pizzaDish.png')
+                    image: require('../../../assets/images/pizzaDish.jpg')
                 },
                 {
                     id: 2,
                     name: 'pizza',
                     description: 'cheezy garlic pizza',
                     price: 10,
-                    image: require('../../../assets/images/pizzaDish.png')
+                    image: require('../../../assets/images/pizzaDish.jpg')
                 },
                 {
                     id: 3,
                     name: 'pizza',
                     description: 'cheezy garlic pizza',
                     price: 10,
-                    image: require('../../../assets/images/pizzaDish.png')
+                    image: require('../../../assets/images/pizzaDish.jpg')
                 },
             ]
 
@@ -113,7 +113,7 @@ export const featured = {
         {
             id: 3,
             name: 'Papa Johns',
-            image: require('../../../assets/images/pizza.png'),
+            image: require('../../../assets/images/pizza.jpg'),
             description: 'Hot and spicy pizzas',
             lng: -85.5324269,
             lat: 38.2145602,
@@ -127,21 +127,21 @@ export const featured = {
                     name: 'pizza',
                     description: 'cheezy garlic pizza',
                     price: 10,
-                    image: require('../../../assets/images/pizzaDish.png')
+                    image: require('../../../assets/images/pizzaDish.jpg')
                 },
                 {
                     id: 2,
                     name: 'pizza',
                     description: 'cheezy garlic pizza',
                     price: 10,
-                    image: require('../../../assets/images/pizzaDish.png')
+                    image: require('../../../assets/images/pizzaDish.jpg')
                 },
                 {
                     id: 3,
                     name: 'pizza',
                     description: 'cheezy garlic pizza',
                     price: 10,
-                    image: require('../../../assets/images/pizzaDish.png')
+                    image: require('../../../assets/images/pizzaDish.jpg')
                 },
             ]
 
