@@ -35,7 +35,7 @@ const DrawerScreen = (props: any) => {
 
     const logout = async () => {
         await removeItem('onboarded')
-        props.navigation.navigate('onboarding')
+        props.navigation.navigate('Onboarding')
     }
 
     return (
