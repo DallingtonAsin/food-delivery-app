@@ -68,6 +68,15 @@ interface Category{
 
 }
 
+type Dish = {
+    _id: number,
+    name: string;
+    price: number;
+    image: any;
+};
+
+type GroupedItems = Record<string, Dish[]>;
+
 export type {
-    AppAction, SignedinUser, Drug, Notification, Category
+    AppAction, SignedinUser, Drug, Notification, Category, GroupedItems
 }

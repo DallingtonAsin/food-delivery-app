@@ -25,7 +25,7 @@ const RestaurantCard = ({ item }: { item: any }) => {
                         <Text className="text-xs">
                             <Text className="text-green-700">{item.stars}</Text>
                             <Text className="text-gray-700">
-                                {item.reviews} . <Text className="font-semibold">{item.category}</Text>
+                                {item.reviews} . <Text className="font-semibold">{item?.type?.name}</Text>
                             </Text>
                         </Text>
                     </View>

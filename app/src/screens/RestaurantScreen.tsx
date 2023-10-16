@@ -10,6 +10,7 @@ import DishRow from "../components/DishRow"
 import RCartIcon from "../components/RCartIcon"
 import { useDispatch } from "react-redux"
 import { setRestaurant } from "../redux/slices/restaurantSlice"
+import { urlFor } from "../server/sanity"
 
 const RestaurantScreen = () => {
     const { params } = useRoute()
@@ -19,7 +20,7 @@ const RestaurantScreen = () => {
     const navigation = useNavigation<NativeStackNavigationProp<any>>()
 
     useEffect(() => {
-        if (item && item.id) {
+        if (item && item._id) {
             dispatch(setRestaurant({ ...item }))
         }
     }, [])
@@ -30,7 +31,7 @@ const RestaurantScreen = () => {
             <StatusBar barStyle={'light-content'} />
             <ScrollView>
                 <View className="relative">
-                    <Image className="w-full h-72" source={item.image} />
+                    <Image className="w-full h-72" source={{ uri: urlFor(item.image).url() }} />
                     <TouchableOpacity
                         onPress={() => navigation.goBack()}
                         className="absolute top-14 left-4 bg-gray-50 p-2 rounded-full shadow">
@@ -48,7 +49,7 @@ const RestaurantScreen = () => {
                                 <Text className="text-xs">
                                     <Text className="text-green-700">{item.stars}</Text>
                                     <Text className="text-gray-700">
-                                        {item.reviews} . <Text className="font-semibold">{item.category}</Text>
+                                        {item.reviews} . <Text className="font-semibold">{item?.type?.name}</Text>
                                     </Text>
                                 </Text>
                             </View>

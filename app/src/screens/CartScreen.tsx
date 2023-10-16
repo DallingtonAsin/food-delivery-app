@@ -9,15 +9,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { selectRestaurant } from "../redux/slices/restaurantSlice"
 import { removeFromCart, selectCartItems, selectCartTotal } from "../redux/slices/cartSlice"
 import { useEffect, useState } from "react"
-
-type Dish = {
-    id: number,
-    name: string;
-    price: number;
-    image: string | any;
-};
-
-type GroupedItems = Record<string, Dish[]>;
+import { urlFor } from "../server/sanity"
+import { GroupedItems } from "../interfaces"
 
 const CartScreen = () => {
 
@@ -27,15 +20,16 @@ const CartScreen = () => {
 
     const cartTotal = useSelector(selectCartTotal)
     const [groupedItems, setGroupedItems] = useState<GroupedItems>({})
-    const [deliveryFee, setDeliveryFee] = useState<number>(80)
+    const [deliveryFee, setDeliveryFee] = useState<number>(0)
     const dispatch = useDispatch()
 
     useEffect(() => {
+        setDeliveryFee(50)
         const items = cartItems.reduce((group: any, item: any) => {
-            if (group[item.id]) {
-                group[item.id].push(item);
+            if (group[item._id]) {
+                group[item._id].push(item);
             } else {
-                group[item.id] = [item];
+                group[item._id] = [item];
             }
             return group;
         }, {});
@@ -83,7 +77,7 @@ const CartScreen = () => {
                 className="pt-5">
                 {
                     Object.entries(groupedItems).map(([key, items]) => {
-                        let dish = items[0]
+
                         return (
                             <View
                                 key={key}
@@ -91,11 +85,11 @@ const CartScreen = () => {
                                 <Text className="font-bold" style={{ color: themeColors.text }}>
                                     {items.length} x
                                 </Text>
-                                <Image className="h-14 w-14 rounded-full" source={dish.image} />
-                                <Text className="flex-1 font-bold text-gray-700">{dish.name}</Text>
-                                <Text className="font-semibold text-base">${dish.price}</Text>
+                                <Image className="h-14 w-14 rounded-full" source={{ uri: urlFor(items[0]?.image).url() }} />
+                                <Text className="flex-1 font-bold text-gray-700">{items[0]?.name}</Text>
+                                <Text className="font-semibold text-base">${items[0]?.price}</Text>
                                 <TouchableOpacity
-                                    onPress={() => removeItem(dish.id)}
+                                    onPress={() => removeItem(items[0]?._id)}
                                     className="p-1 rounded-full"
                                     style={{ backgroundColor: themeColors.bgColor(1) }}
                                 >

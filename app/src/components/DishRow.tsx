@@ -7,12 +7,13 @@ import { useDispatch, useSelector } from "react-redux"
 import { createSelector } from "@reduxjs/toolkit"
 import { RootState } from "../redux/store"
 import { addToCart, removeFromCart, selectCartItemsById } from "../redux/slices/cartSlice"
+import { urlFor } from "../server/sanity"
 
 const DishRow = ({ item }: { item: any }) => {
 
     const dispatch = useDispatch()
 
-    const cartItemsById = (state: RootState) => selectCartItemsById(state, item.id)
+    const cartItemsById = (state: RootState) => selectCartItemsById(state, item._id)
     const cartItemSelector = createSelector(
         [cartItemsById],
         (cartItems: any) => {
@@ -26,12 +27,12 @@ const DishRow = ({ item }: { item: any }) => {
     }
 
     const handleDecrease = () => {
-        dispatch(removeFromCart({ id: item.id }))
+        dispatch(removeFromCart({ id: item._id }))
     }
 
     return (
         <View className="flex-row items-center bg-white p-3 rounded-3xl shadow-2xl mb-3 mx-2">
-            <Image className="rounded-3xl" style={{ height: 100, width: 100 }} source={item.image} />
+            <Image className="rounded-3xl" style={{ height: 100, width: 100 }} source={{ uri: urlFor(item.image).url() }} />
             <View className="flex flex-1 space-y-3">
                 <View className="pl-3">
                     <Text className="text-xl">{item.name}</Text>
