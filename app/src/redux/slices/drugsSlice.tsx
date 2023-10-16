@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { Drug } from "../../interfaces";
+import { RootState } from "../store";
 
 interface CartState {
     cart: Drug[];
@@ -51,6 +52,6 @@ const drugSlice = createSlice({
 
 export const { addDrugToCart, removeDrugFromCart, incrementQuantity, decrementQuantity } = drugSlice.actions;
 
-export const selectCart = (state: any) => state.drugs.cart;
+export const selectCart = (state: RootState) => state.drugs.cart;
 
 export default drugSlice.reducer;
