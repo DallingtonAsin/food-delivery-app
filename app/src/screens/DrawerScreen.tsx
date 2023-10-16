@@ -10,6 +10,7 @@ import { colors } from '../configs'
 import * as Icon from "react-native-feather"
 import { drawerScreenItems } from '../configs/constants'
 import { themeColors } from '../configs/themes'
+import { removeItem } from '../async-storage'
 
 const url = `https://pivosoft.com`
 const title = `Download ${APP_NAME}`
@@ -30,6 +31,11 @@ const DrawerScreen = (props: any) => {
         } catch (err) {
             console.log(err)
         }
+    }
+
+    const logout = async () => {
+        await removeItem('onboarded')
+        props.navigation.navigate('onboarding')
     }
 
     return (
@@ -101,11 +107,9 @@ const DrawerScreen = (props: any) => {
 
                             <View style={styles.divider}></View>
 
-                            <TouchableOpacity style={styles.drawerItem} onPress={() => {
-                                props.navigation.navigate('Settings')
-                            }}>
-                                <FontAwesome name="cog" size={iconSize * 1.2} style={styles.drawerIcon} />
-                                <Text style={styles.drawerText}>Settings</Text>
+                            <TouchableOpacity style={styles.drawerItem} onPress={logout}>
+                                <Icon.LogOut strokeWidth={iconSize * 1.2} style={styles.drawerIcon} />
+                                <Text style={styles.drawerText}>Logout</Text>
                             </TouchableOpacity>
 
                         </View>

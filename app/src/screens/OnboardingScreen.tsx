@@ -4,6 +4,7 @@ import Onboarding from 'react-native-onboarding-swiper'
 import LottieView from 'lottie-react-native'
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { setItem } from "../async-storage"
 
 const { width } = Dimensions.get('window')
 
@@ -11,7 +12,8 @@ const OnboardingScreen = () => {
 
     const navigation = useNavigation<NativeStackNavigationProp<any>>()
 
-    const handleDone = () => {
+    const handleDone = async () => {
+        await setItem('onboarded', '1')
         navigation.navigate('Home')
     }
 
@@ -46,7 +48,7 @@ const OnboardingScreen = () => {
                             <View style={styles.lottie}>
                                 <LottieView
                                     style={styles.lottieView}
-                                    source={require('../../assets/animations/boost.json')} autoPlay loop/>
+                                    source={require('../../assets/animations/boost.json')} autoPlay loop />
                             </View>
                         ),
                         title: 'Boost Productivity',
