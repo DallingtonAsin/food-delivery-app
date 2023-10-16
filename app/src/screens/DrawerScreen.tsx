@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, TouchableOpacity, StyleSheet, StatusBar } from 'react-native'
 import Iconf from 'react-native-vector-icons/FontAwesome5'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { Avatar, Text } from 'react-native-paper'
@@ -8,6 +8,8 @@ import Share from "react-native-share"
 import { APP_NAME } from '@env'
 import { colors } from '../configs'
 import * as Icon from "react-native-feather"
+import { drawerScreenItems } from '../configs/constants'
+import { themeColors } from '../configs/themes'
 
 const url = `https://pivosoft.com`
 const title = `Download ${APP_NAME}`
@@ -18,30 +20,9 @@ const options = {
     url,
     message
 }
+const iconSize = 20
 
 const DrawerScreen = (props: any) => {
-
-    const iconSize = 20
-
-    const items = [
-        {
-            icon: 'home',
-            text: 'Home',
-            screenToNavigate: 'Home',
-        },
-
-        {
-            icon: 'user-circle',
-            text: 'Profile',
-            screenToNavigate: 'Profile',
-        },
-
-        {
-            icon: 'shopping-cart',
-            text: 'My Orders',
-            screenToNavigate: 'Weather',
-        },
-    ]
 
     const share = async (customOptions = options) => {
         try {
@@ -54,33 +35,33 @@ const DrawerScreen = (props: any) => {
     return (
 
         <View style={{ flex: 1, backgroundColor: colors.white }}>
+            <StatusBar barStyle="light-content" />
             <DrawerContentScrollView {...props}>
-                <View style={styles.drawerContent}>
+                <View className="flex-1">
 
-                    <View style={styles.userInfoSection}>
+                    <View
+                        style={{ backgroundColor: themeColors.bgColor(1), height: 200 }}
+                        className="justify-center items-center -mt-2">
                         <Avatar.Icon
                             size={100}
                             icon={({ size, color }) => (
                                 <Icon.User height={size} width={size} stroke={colors.white} />
                             )}
+                            className="mt-3"
                             style={{ backgroundColor: colors.old_gray }}
                         />
-                        <Text style={{
-                            marginTop: 5, fontSize: 18,
-                            fontWeight: 'bold',
-                            color: colors.black,
-                            opacity: 0.8
-                        }}>
+                        <Text
+                            className="font-extrabold text-white mt-3"
+                            style={{ fontSize: 18 }} >
                             {`Dallington`} {`Asingwire`}
                         </Text>
-                        <Text style={{ marginBottom: 15, fontSize: 16, color: colors.black, opacity: 0.7 }}>{`+256774014727`}</Text>
+                        <Text className="font-extrabold text-white" style={{ fontSize: 16 }}>{`+256774014727`}</Text>
                     </View>
 
 
-                    <View style={styles.sideMenuContainer}>
-                        <View style={styles.divider}></View>
+                    <View className="w-100 h-100 items-center pt-5">
                         <View style={{ width: '100%' }}>
-                            {items.map((item, key) => {
+                            {drawerScreenItems.map((item, key) => {
                                 return (
                                     <TouchableOpacity key={key} style={[{
                                         // backgroundColor: global.currentScreenIndex === key ? '#F7F5F5' : null
@@ -89,8 +70,7 @@ const DrawerScreen = (props: any) => {
                                         props.navigation.navigate(item.screenToNavigate)
                                     }}>
                                         <Iconf name={item.icon} size={iconSize} style={styles.drawerIcon} />
-                                        <Text style={styles.drawerText}
-                                        >
+                                        <Text style={styles.drawerText}>
                                             {item.text}
                                         </Text>
                                     </TouchableOpacity>
@@ -140,20 +120,6 @@ export default DrawerScreen
 
 const styles = StyleSheet.create({
 
-    drawerContent: {
-        flex: 1
-    },
-    userInfoSection: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 10
-    },
-    sideMenuContainer: {
-        width: '100%',
-        height: '100%',
-        alignItems: 'center',
-        paddingTop: 5,
-    },
     divider: {
         width: '100%',
         height: 1,
