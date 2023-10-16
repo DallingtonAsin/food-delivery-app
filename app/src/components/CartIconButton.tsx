@@ -3,14 +3,14 @@ import { themeColors } from "../configs/themes"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { useSelector } from "react-redux"
-import { selectCartItems, selectCartTotal } from "../redux/slices/cartSlice"
+import { selectCartItems, selectCartTotalCost } from "../redux/slices/cartSlice"
 import { thousandFormatter } from "../utils"
 
-const RCartIcon = () => {
+const CartIconButton = () => {
 
     const navigation = useNavigation<NativeStackNavigationProp<any>>()
     const cartItems = useSelector(selectCartItems)
-    const cartTotalPrice = useSelector(selectCartTotal)
+    const cartTotalPrice = useSelector(selectCartTotalCost)
 
     if (!cartItems.length) return
 
@@ -35,4 +35,4 @@ const RCartIcon = () => {
     )
 }
 
-export default RCartIcon
+export default CartIconButton
