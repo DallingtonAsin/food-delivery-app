@@ -27,4 +27,24 @@ const initialUserState: SignedinUser = {
   token: '',
 }
 
-export { organisation, initialUserState }
+const drawerScreenItems = [
+  {
+    icon: 'home',
+    text: 'Home',
+    screenToNavigate: 'Home',
+  },
+
+  {
+    icon: 'user-circle',
+    text: 'Profile',
+    screenToNavigate: 'Profile',
+  },
+
+  {
+    icon: 'shopping-cart',
+    text: 'My Orders',
+    screenToNavigate: 'Weather',
+  },
+]
+
+export { organisation, initialUserState, drawerScreenItems }

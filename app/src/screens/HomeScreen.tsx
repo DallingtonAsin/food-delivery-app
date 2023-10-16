@@ -16,9 +16,8 @@ const HomeScreen = (props: any) => {
 
     return (
         <SafeAreaView className="flex-1 mt-3">
-            <StatusBar
-                barStyle="dark-content"
-            />
+
+            <StatusBar backgroundColor={themeColors.bgColor(1)} />
 
             {/* search bar */}
             <View className="flex-row items-center space-x-2 px-4 pb-2">
