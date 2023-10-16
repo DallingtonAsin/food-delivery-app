@@ -7,6 +7,7 @@ import { APP_NAME } from '@env'
 import HomeScreen from '../../screens/HomeScreen'
 import { colors } from '../../configs'
 import CartIcon from '../../components/shop/CartIcon'
+import { themeColors } from '../../configs/themes'
 
 const Stack = createStackNavigator()
 
@@ -18,18 +19,14 @@ const HomeStack: any = (props: any) => {
                     headerStyle: {
                         backgroundColor: colors.white
                     },
-                    headerTintColor: colors.primary,
+                    headerTintColor: themeColors.bgColor(1),
                     headerTitle: APP_NAME,
                     headerLeft: () => (
                         <TouchableOpacity style={{ paddingVertical: 12, paddingHorizontal: 16 }} onPress={() => props.navigation.dispatch(DrawerActions.openDrawer())}>
                             <Icon name="bars" size={25} color={colors.gray} />
                         </TouchableOpacity>
                     ),
-                    headerRight: () => (
-                        <>
-                            <CartIcon />
-                        </>
-                    )
+                    headerRight: () => (<CartIcon />)
                 }}
             />
         </Stack.Navigator>
