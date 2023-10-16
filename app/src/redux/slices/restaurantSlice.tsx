@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { RootState } from "../store";
 
 const initialState: any = {
     restaurant: null
@@ -17,6 +18,6 @@ const restaurantSlice = createSlice({
 
 export const { setRestaurant } = restaurantSlice.actions;
 
-export const selectRestaurant = (state: any) => state.restaurant.restaurant;
+export const selectRestaurant = (state: RootState) => state.restaurant.restaurant;
 
 export default restaurantSlice.reducer
