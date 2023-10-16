@@ -1,8 +1,9 @@
 import { createClient } from '@sanity/client'
 import imageBuilder from '@sanity/image-url'
+import { SANITY_PROJECT_ID } from '@env'
 
 const sanityClient = createClient({
-    projectId: '3ffx6ucl',
+    projectId: SANITY_PROJECT_ID,
     dataset: 'production',
     useCdn: true,
     apiVersion: '2023-05-03'
