@@ -10,6 +10,7 @@ import { removeFromCart, selectCartItems, selectCartTotalCost } from "../redux/s
 import { useEffect, useState } from "react"
 import { urlFor } from "../server/sanity"
 import { GroupedItems } from "../interfaces"
+import { thousandFormatter } from "../utils"
 
 const CartScreen = () => {
 
@@ -104,15 +105,15 @@ const CartScreen = () => {
             <View style={{ backgroundColor: themeColors.bgColor(0.2) }} className="p-6 px-8 rounded-t-3xl space-y-4">
                 <View className="flex-row justify-between">
                     <Text className="text-gray-700">Subtotal</Text>
-                    <Text className="text-gray-700">${cartTotal}</Text>
+                    <Text className="text-gray-700">${thousandFormatter(cartTotal)}</Text>
                 </View>
                 <View className="flex-row justify-between">
                     <Text className="text-gray-700">Delivery Fee</Text>
-                    <Text className="text-gray-700">${deliveryFee}</Text>
+                    <Text className="text-gray-700">${thousandFormatter(deliveryFee)}</Text>
                 </View>
                 <View className="flex-row justify-between">
                     <Text className="text-gray-700 font-extrabold">Order Total</Text>
-                    <Text className="text-gray-700 font-extrabold">${cartTotal + deliveryFee}</Text>
+                    <Text className="text-gray-700 font-extrabold">${thousandFormatter(cartTotal + deliveryFee)}</Text>
                 </View>
                 <View>
                     <TouchableOpacity

@@ -63,7 +63,7 @@ const DeliveryScreen = () => {
           className="p-2 flex-row justify-between items-center rounded-full my-5 mx-2">
           <View className="p-1 rounded-full"
             style={{ backgroundColor: 'rgba(255,255,255,0.4' }}>
-            <Image className="h-16 w-16 rounded-full" source={require('../../assets/images/deliveryGuy.jpg')} />
+            <Image className="h-16 w-16 rounded-full" source={require('../../assets/images/rider.jpeg')} />
           </View>
           <View className="flex-1 ml-3">
             <Text className="text-lg font-bold text-white">
