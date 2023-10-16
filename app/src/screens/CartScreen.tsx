@@ -6,7 +6,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { colors } from "../configs"
 import { useDispatch, useSelector } from "react-redux"
 import { selectRestaurant } from "../redux/slices/restaurantSlice"
-import { removeFromCart, selectCartItems, selectCartTotal } from "../redux/slices/cartSlice"
+import { removeFromCart, selectCartItems, selectCartTotalCost } from "../redux/slices/cartSlice"
 import { useEffect, useState } from "react"
 import { urlFor } from "../server/sanity"
 import { GroupedItems } from "../interfaces"
@@ -17,7 +17,7 @@ const CartScreen = () => {
     const navigation = useNavigation<NativeStackNavigationProp<any>>()
     const cartItems = useSelector(selectCartItems)
 
-    const cartTotal = useSelector(selectCartTotal)
+    const cartTotal = useSelector(selectCartTotalCost)
     const [groupedItems, setGroupedItems] = useState<GroupedItems>({})
     const [deliveryFee, setDeliveryFee] = useState<number>(0)
     const dispatch = useDispatch()

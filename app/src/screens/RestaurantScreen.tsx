@@ -6,7 +6,7 @@ import { themeColors } from "../configs/themes"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import DishRow from "../components/DishRow"
-import RCartIcon from "../components/RCartIcon"
+import CartIconButton from "../components/CartIconButton"
 import { useDispatch } from "react-redux"
 import { setRestaurant } from "../redux/slices/restaurantSlice"
 import { urlFor } from "../server/sanity"
@@ -26,7 +26,7 @@ const RestaurantScreen = () => {
 
     return (
         <View>
-            <RCartIcon />
+            <CartIconButton />
             <StatusBar barStyle={'light-content'} />
             <ScrollView>
                 <View className="relative">
