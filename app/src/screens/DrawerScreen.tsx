@@ -108,7 +108,7 @@ const DrawerScreen = (props: any) => {
                             <View style={styles.divider}></View>
 
                             <TouchableOpacity style={styles.drawerItem} onPress={logout}>
-                                <Icon.LogOut strokeWidth={iconSize * 1.2} style={styles.drawerIcon} />
+                                <Icon.LogOut strokeWidth={3} style={styles.drawerIcon} />
                                 <Text style={styles.drawerText}>Logout</Text>
                             </TouchableOpacity>
 
