@@ -1,149 +1,76 @@
-import React, { useState, useRef, useContext } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
+import React from 'react'
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, Image } from 'react-native'
 import * as configs from '../../configs'
-import { TextInput } from 'react-native-paper'
-import AppLoader from '../../components/AppLoader'
-import { getAppVersion, isValidEmail, removeLeadingZeros } from '../../components/common/SharedHelper'
-import { Context as AuthContext } from '../../context/authContext'
-import { displayMessage } from '../../components/common/SharedHelper'
-import { getDeviceId, getIPAddress, getToken } from '../../components/common/AppUtils'
-import TouchableImage from '../../components/TouchableImage'
+import * as Icon from "react-native-feather"
+import { useNavigation } from "@react-navigation/native"
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { TextInput } from 'react-native'
 
-const SigninScreen = (props: any) => {
-
-    const [value, setValue] = useState("")
-    const [valid, setValid] = useState(false)
-    const [isLoading, setIsLoading] = useState(false)
-    const [isPhoneLogin, setIsPhoneLogin] = useState(true)
-    const [selectedImage, setSelectedImage] = useState<string>('image1')
-    const [password, setPassword] = useState('')
-    const [email, setEmail] = useState('')
-    const [showPassword, setShowPassword] = useState(false)
-
-    const [isDoctor, setIsDoctor] = useState(false)
-    const currentUserType = isDoctor ? 'doctor' : 'patient'
-
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword)
-    }
-
-    const submit = async () => {
-    }
-
-    const login = (payload: any, is_patient: boolean) => {
-        setIsLoading(true)
-    }
-
-    const onSuccess = async (data: any) => {
-     
-    }
-
-    const stopLoading = () => {
-        setIsLoading(false)
-    }
-
-    const onChangePhoneNumber = (text: string) => {
-        setValue(text)
-        const isValid = text && text.length >= 9 ? true : false
-        setValid(isValid)
-    }
-
-    const onChangeCountry = (country: any) => {
-        const name = country.name
-        const isValid = name.toString().toLowerCase() === 'uganda'
-        setValid(isValid)
-    }
-
-    const handleImagePress = (image: string) => {
-        setSelectedImage(image)
-        if (image == 'image2') {
-            setIsDoctor(true)
-        } else {
-            setIsDoctor(false)
-        }
-    }
-
-    // if(!clientIsReady){
-    //     return <AppLoader/>
-    // }
-
+const SigninScreen = () => {
+    const navigation = useNavigation<NativeStackNavigationProp<any>>()
 
     return (
-        <React.Fragment>
-            <ScrollView
-                style={configs.styles.registration.doctor.scrollView}
-                contentContainerStyle={configs.styles.registration.doctor.scrollContainer}
-                showsVerticalScrollIndicator={false}>
-           
-                <View style={styles.body}>
-                    <Text style={styles.title}>Login</Text>
-                    <View>
-                    
-                        {!isPhoneLogin &&
-                            <View style={styles.textInputContainer}>
-                                <TextInput
-                                    mode='outlined'
-                                    label="Email"
-                                    style={styles.textInput}
-                                    value={email}
-                                    placeholder='Enter your email'
-                                    onChangeText={(text) => setEmail(text)}
-                                    activeOutlineColor={configs.colors.primary}
-                                />
-                            </View>}
-
-                        <View style={styles.textInputContainer}>
-                            <TextInput
-                                mode='outlined'
-                                label="Password"
-                                style={styles.textInput}
-                                secureTextEntry={!showPassword}
-                                value={password}
-                                placeholder='Enter your password'
-                                onChangeText={(text) => setPassword(text)}
-                                right={<TextInput.Icon icon={showPassword ? 'eye' : 'eye-off'} size={24} onPress={togglePasswordVisibility} />}
-                                activeOutlineColor={configs.colors.primary}
-                            />
-                        </View>
-                        <View>
-                            <TouchableOpacity onPress={() => setIsPhoneLogin(!isPhoneLogin)}>
-                                {isPhoneLogin && <Text style={styles.loginOption}>Click here to login using email instead!</Text>}
-                                {!isPhoneLogin && <Text style={styles.loginOption}>Click here to login using phone number instead!</Text>}
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={{ marginVertical: 20 }}>
-                            <TouchableOpacity style={[{ marginVertical: 5 }]} onPress={() => { props.navigation.navigate('PwdResetVerificationInput') }}>
-                                <Text style={{ color: configs.colors.gray, textAlign: 'center' }}>Forgot your password?. Click here to reset</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                </View>
-
-
-
-                <View style={styles.footer}>
+        <View className="flex-1 bg-white" style={{ backgroundColor: configs.colors.palePurple }}>
+            <SafeAreaView className="flex-">
+                <View className="flex-row justify-start">
                     <TouchableOpacity
-                        disabled={false}
-                        style={configs.styles.primaryBtn}
-                        onPress={() => submit()}>
-                        <Text style={configs.styles.continueText}>Next</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        disabled={false}
-                        style={[valid ? configs.styles.secondaryBtn : configs.styles.secondaryBtn, { marginVertical: 10 }]}
-                        onPress={() => props.navigation.goBack()}>
-                        <Text style={configs.styles.btnText}>Back</Text>
+                        onPress={() => navigation.goBack()}
+                        className="bg-yellow-400 p-2 rounded-tr-2xl rounded-bl-2xl ml-4 mt-2">
+                        <Icon.ArrowLeft strokeWidth={2} stroke={configs.colors.black} />
                     </TouchableOpacity>
                 </View>
+                <View className="flex-row justify-center">
+                    <Image source={require('../../../assets/images/login.png')}
+                        style={{ width: 200, height: 200 }} />
+                </View>
+            </SafeAreaView>
+            <View
+                className="flex-1 bg-white px-8 pt-8"
+                style={{ borderTopLeftRadius: 50, borderTopRightRadius: 50 }}
+            >
+                <View className="form space-y-2">
+                    <Text className="text-gray-700 ml-4">Email address</Text>
+                    <TextInput className="p-4 bg-gray-100 text-gray-700 rounded-2xl mb-3"
+                        placeholder="Enter email"
+                    />
+                    <Text className="text-gray-700 ml-4">Password</Text>
+                    <TextInput className="p-4 bg-gray-100 text-gray-700 rounded-2xl"
+                        placeholder="Enter password"
+                    />
+                    <TouchableOpacity className="flex items-end mb-5">
+                        <Text className="text-gray-700">Forgot Password?</Text>
+                    </TouchableOpacity>
 
-
-            </ScrollView>
-
-            {isLoading && <AppLoader />}
-
-        </React.Fragment>
+                    <TouchableOpacity className="bg-yellow-400 py-3 rounded-xl">
+                        <Text className="font-xl font-bold text-center text-gray-700">Login</Text>
+                    </TouchableOpacity>
+                </View>
+                <Text className="text-xl font-bold text-gray-700 text-center py-5">
+                    Or
+                </Text>
+                <View className="flex-row justify-center space-x-12">
+                    <TouchableOpacity className="bg-gray-100 p-2 rounded-2xl">
+                        <Image source={require('../../../assets/icons/google.png')}
+                            className="w-10 h-10" />
+                    </TouchableOpacity>
+                    <TouchableOpacity className="bg-gray-100 p-2 rounded-2xl">
+                        <Image source={require('../../../assets/icons/apple.png')}
+                            className="w-10 h-10" />
+                    </TouchableOpacity>
+                    <TouchableOpacity className="bg-gray-100 p-2 rounded-2xl">
+                        <Image source={require('../../../assets/icons/facebook.png')}
+                            className="w-10 h-10" />
+                    </TouchableOpacity>
+                </View>
+                <View className="flex-row justify-center mt-4">
+                    <Text className="text-gray-500 font-semibold">Don't have an account?</Text>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Register')}>
+                        <Text className="font-semibold text-yellow-500 ml-1">Register</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </View>
     )
 }
 
