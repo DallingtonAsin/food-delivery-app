@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import SigninScreen from "../screens/Authentication/SigninScreen"
-import WelcomeScreen from "../screens/Authentication/WelcomeScreen"
+import WelcomeScreen from "../screens/WelcomeScreen"
 import SignupScreen from "../screens/Authentication/SignupScreen"
 import OnboardingScreen from "../screens/OnboardingScreen"
 import { getItem } from "../async-storage"

@@ -1,11 +1,20 @@
 import { SafeAreaView, View, Text, Image, TouchableOpacity } from "react-native"
-import { colors } from "../../configs"
+import { colors } from "../configs"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { useEffect } from "react"
+import { setItem } from "../async-storage"
 
 const WelcomeScreen = () => {
 
     const navigation = useNavigation<NativeStackNavigationProp<any>>()
+
+    // useEffect(() => {
+    //     reinstateOnboarding()
+    //     async function reinstateOnboarding() {
+    //         await setItem('onboarded', '0')
+    //     }
+    // }, [])
 
     return (
         <SafeAreaView className="flex-1"
@@ -15,7 +24,7 @@ const WelcomeScreen = () => {
                     Let's Get Started!
                 </Text>
                 <View className="flex-row justify-center">
-                    <Image source={require('../../../assets/images/welcome.png')}
+                    <Image source={require('../../assets/images/welcome.png')}
                         style={{ width: 350, height: 350 }} />
                 </View>
                 <View className="space-y-4">
