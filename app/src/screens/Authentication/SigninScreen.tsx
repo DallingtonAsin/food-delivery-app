@@ -12,6 +12,7 @@ const SigninScreen = () => {
 
     const login = async () => {
         await setItem('onboarded', '1')
+        navigation.navigate('Onboarding')
     }
 
     return (
