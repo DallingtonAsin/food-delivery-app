@@ -87,7 +87,7 @@ const CartScreen = () => {
                                 </Text>
                                 <Image className="h-14 w-14 rounded-full" source={{ uri: urlFor(items[0]?.image).url() }} />
                                 <Text className="flex-1 font-bold text-gray-700">{items[0]?.name}</Text>
-                                <Text className="font-semibold text-base">${items[0]?.price}</Text>
+                                <Text className="font-semibold text-base">${thousandFormatter(items[0]?.price)}</Text>
                                 <TouchableOpacity
                                     onPress={() => removeItem(items[0]?._id)}
                                     className="p-1 rounded-full"

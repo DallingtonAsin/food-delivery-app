@@ -8,6 +8,7 @@ import { createSelector } from "@reduxjs/toolkit"
 import { RootState } from "../redux/store"
 import { addToCart, removeFromCart, selectCartItemsById } from "../redux/slices/cartSlice"
 import { urlFor } from "../server/sanity"
+import { thousandFormatter } from "../utils"
 
 const DishRow = ({ item }: { item: any }) => {
 
@@ -39,7 +40,7 @@ const DishRow = ({ item }: { item: any }) => {
                     <Text className="text-gray-700">{item.description}</Text>
                 </View>
                 <View className="flex-row justify-between pl-3 items-center">
-                    <Text className="text-gray-700 text-lg font-bold">${item.price}</Text>
+                    <Text className="text-gray-700 text-lg font-bold">${thousandFormatter(item.price)}</Text>
                     <View className="flex-row items-center">
                         <TouchableOpacity
                             onPress={handleDecrease}
