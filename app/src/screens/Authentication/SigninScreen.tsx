@@ -5,12 +5,13 @@ import * as Icon from "react-native-feather"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { TextInput } from 'react-native'
+import { setItem } from '../../async-storage'
 
 const SigninScreen = () => {
     const navigation = useNavigation<NativeStackNavigationProp<any>>()
 
-    const login = () => {
-        console.log(`will implement this soon`)
+    const login = async () => {
+        await setItem('onboarded', '1')
     }
 
     return (
