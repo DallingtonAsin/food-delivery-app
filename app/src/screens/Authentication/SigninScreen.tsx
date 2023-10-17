@@ -9,6 +9,10 @@ import { TextInput } from 'react-native'
 const SigninScreen = () => {
     const navigation = useNavigation<NativeStackNavigationProp<any>>()
 
+    const login = () => {
+        console.log(`will implement this soon`)
+    }
+
     return (
         <View className="flex-1 bg-white" style={{ backgroundColor: configs.colors.palePurple }}>
             <SafeAreaView className="flex-">
@@ -41,7 +45,9 @@ const SigninScreen = () => {
                         <Text className="text-gray-700">Forgot Password?</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity className="bg-yellow-400 py-3 rounded-xl">
+                    <TouchableOpacity
+                        onPress={login}
+                        className="bg-yellow-400 py-3 rounded-xl">
                         <Text className="font-xl font-bold text-center text-gray-700">Login</Text>
                     </TouchableOpacity>
                 </View>
