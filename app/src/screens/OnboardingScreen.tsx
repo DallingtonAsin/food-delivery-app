@@ -13,7 +13,7 @@ const OnboardingScreen = () => {
     const navigation = useNavigation<NativeStackNavigationProp<any>>()
 
     const handleDone = async () => {
-        await setItem('onboarded', '0')
+        await setItem('onboarded', '1')
         navigation.navigate('Welcome')
     }
 
