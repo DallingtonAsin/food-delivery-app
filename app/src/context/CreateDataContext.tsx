@@ -16,7 +16,7 @@ export default (reducer: any, action: any, defaultValue: any) => {
                 const token = await getAuthToken();
                 if (token) {
                     const user = await getUser()
-                    if (user && user.access_token) {
+                    if (user && user.token) {
                         dispatch({
                             type: types.HYDRATE,
                             payload: user

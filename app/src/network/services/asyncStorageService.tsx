@@ -21,27 +21,6 @@ const getAuthToken = async () => {
     }
 }
 
-const storeAccessToken = async (accessToken: any) => {
-
-    try {
-        let value = JSON.stringify(accessToken);
-        await AsyncStorage.setItem("access_token", value);
-    } catch (error) {
-        throw error;
-    }
-}
-
-const getAccessToken = async () => {
-    try {
-        let accessToken = await AsyncStorage.getItem("access_token");
-        accessToken = accessToken ? JSON.parse(accessToken) : null;
-
-        return accessToken;
-    } catch (err) {
-        throw err;
-    }
-}
-
 const storePasswordResetToken = async (authToken: string) => {
     try {
         let value = JSON.stringify(authToken);
@@ -99,18 +78,7 @@ const removeAuthToken = async () => {
     }
 }
 
-const removeAccessToken = async () => {
-    try {
-        await AsyncStorage.removeItem("access_token");
-    } catch (err) {
-        throw err;
-    }
-}
-
-
-
 export {
-    storeAuthToken, getAuthToken, storeAccessToken, getAccessToken,
-    removeAuthToken, removeAccessToken, storeUser, getUser, removeUser,
+    storeAuthToken, getAuthToken, removeAuthToken, storeUser, getUser, removeUser,
     storePasswordResetToken, getPasswordResetToken
 }

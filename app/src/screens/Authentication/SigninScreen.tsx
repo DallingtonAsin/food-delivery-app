@@ -9,7 +9,6 @@ import Toast from 'react-native-simple-toast'
 import { useAuth } from '../../context'
 import { displayMessage } from '../../components/common/SharedHelper'
 import AppLoader from '../../components/AppLoader'
-import { themeColors } from '../../configs/themes'
 
 const SigninScreen = () => {
     const navigation = useNavigation<NativeStackNavigationProp<any>>()

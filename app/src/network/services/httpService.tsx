@@ -1,12 +1,12 @@
-import axios from 'axios';
-import { API_URL } from '@env';
-import { getAccessToken, getAuthToken } from './asyncStorageService';
+import axios from 'axios'
+import { API_URL } from '@env'
+import { getAuthToken } from './asyncStorageService'
 
-console.log(`API_URL`, API_URL)
+// console.log(`API_URL`, API_URL)
 
 class Service {
 
-  private baseUrl: string = '';
+  private baseUrl: string = ''
 
   constructor() {
     this.baseUrl = `${API_URL}/api/v1/`
@@ -15,91 +15,88 @@ class Service {
   request = () => {
     const client = axios.create({
       baseURL: this.baseUrl
-    });
-    return client;
+    })
+    return client
   }
 
   get = async (endpoint: string) => {
     try {
-      const headers = await this.getHeader();
+      const headers = await this.getHeader()
       const response = this.request().get(endpoint, headers).then(res => {
-        return res;
-      }).catch((error) => { throw error });
-      return response;
+        return res
+      }).catch((error) => { throw error })
+      return response
     } catch (err) {
-      throw err;
+      throw err
     }
   }
 
   post = async (endpoint: string, data: any, isMultipart = false) => {
     try {
-      const headers = await this.getHeader(isMultipart);
+      const headers = await this.getHeader(isMultipart)
       const response = this.request().post(endpoint, data, headers).then(res => {
-        return res;
+        return res
       }).catch((error) => {
         if (error && error.response && error.response.data) throw error.response.data
         throw error
-      });
-      return response;
+      })
+      return response
     } catch (err) {
-      throw err;
+      throw err
     }
   }
 
   put = async (endpoint: string, data: any, isMultipart = false) => {
     try {
 
-      const headers = await this.getHeader(isMultipart);
+      const headers = await this.getHeader(isMultipart)
       const response = this.request().put(endpoint, data, headers).then(res => {
-        return res;
+        return res
       }).catch((error) => {
         if (error && error.response && error.response.data) throw error.response.data
         throw error
-      });
-      return response;
+      })
+      return response
     } catch (err) {
-      throw err;
+      throw err
     }
   }
 
   delete = async (endpoint: string) => {
     try {
 
-      const headers = await this.getHeader();
+      const headers = await this.getHeader()
       const response = this.request().delete(endpoint, headers).then(res => {
-        return res;
+        return res
       }).catch((error) => {
         if (error && error.response && error.response.data) throw error.response.data
         throw error
-      });
-      return response;
+      })
+      return response
     } catch (err) {
-      throw err;
+      throw err
     }
   }
 
   getHeader = async (isMultipart = false) => {
     try {
 
-      let bearerToken = await getAuthToken();
-      if (!bearerToken) {
-        bearerToken = await getAccessToken();
-      }
-
+      const bearerToken = await getAuthToken()
       const contentType = isMultipart ? 'multipart/form-data' : 'application/json'
+
       const headers = {
         headers: {
           'Accept': 'application/json',
           'Content-Type': contentType,
           'Authorization': 'Bearer ' + bearerToken
-        },
+        }
       }
-      return headers;
+      return headers
 
     } catch (err) {
-      throw err;
+      throw err
     }
   }
 }
 
-export default Service;
+export default Service

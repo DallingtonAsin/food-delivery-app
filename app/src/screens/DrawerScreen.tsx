@@ -26,7 +26,7 @@ const iconSize = 20
 
 const DrawerScreen = (props: any) => {
 
-    const { state } = useAuth()
+    const { state, signout } = useAuth()
     const { name, email, countryCode, phoneNumber } = state.user
 
     const share = async (customOptions = options) => {
@@ -38,7 +38,7 @@ const DrawerScreen = (props: any) => {
     }
 
     const logout = async () => {
-        await removeItem('onboarded')
+        await signout()
         props.navigation.navigate('Onboarding')
     }
 
@@ -65,7 +65,7 @@ const DrawerScreen = (props: any) => {
                             style={{ fontSize: 18 }} >
                             {name}
                         </Text>
-                        <Text className="font-extrabold text-white" style={{ fontSize: 16 }}>{email}</Text>
+                        {/* <Text className="font-extrabold text-white" style={{ fontSize: 16 }}>{email}</Text> */}
                     </View>
 
 

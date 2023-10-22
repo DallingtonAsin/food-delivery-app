@@ -9,12 +9,16 @@ import { Provider as AppProvider } from './app/src/context/AppContext'
 import { store, persistor } from './app/src/redux/store'
 import AppDrawerStack from './app/src/navigation/AppDrawerStack'
 import { useAuth } from './app/src/context'
+import AppLoader from './app/src/components/AppLoader'
 const Stack = createNativeStackNavigator()
 
 function App(): JSX.Element {
 
   const { state } = useAuth()
-  console.log(`current state`, state)
+
+  if (state.isAppLoading) {
+    return <AppLoader />
+  }
 
   return (
     <NavigationContainer>

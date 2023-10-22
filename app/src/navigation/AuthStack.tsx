@@ -19,7 +19,6 @@ const AuthStack = () => {
 
     const checkIfAlreadyOnboarded = async () => {
         let onboarded: any = await getItem('onboarded')
-        console.log(`onboarded value`, onboarded)
         if (onboarded == 1) {
             setShowOnboarding(false)
             setInitialRoute('Welcome')

@@ -1,7 +1,7 @@
 import createDataContext from './CreateDataContext'
 import { routes } from '../network/routes'
 import Service from '../network/services/httpService'
-import { storeUser, storeAuthToken, removeAuthToken, removeAccessToken, removeUser, getUser, storePasswordResetToken } from '../network/services/asyncStorageService'
+import { storeUser, storeAuthToken, removeAuthToken, removeUser, getUser, storePasswordResetToken } from '../network/services/asyncStorageService'
 import { appReducer } from './reducers/appReducer'
 import { initialUserState } from '../configs/constants'
 import { displayErrorMessage } from '../components/common/SharedHelper'
