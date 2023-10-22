@@ -1,10 +1,8 @@
 import createDataContext from './CreateDataContext'
 import { routes } from '../network/routes'
 import Service from '../network/services/httpService'
-import { storeUser, storeAuthToken } from '../network/services/asyncStorageService'
 import { appReducer } from './reducers/appReducer'
 import { displayErrorMessage } from '../components/common/SharedHelper'
-import * as types from './actions'
 
 const services = new Service()
 
@@ -26,11 +24,28 @@ const changePassword = () => {
     }
 }
 
+const getCompanyContacts = () => {
+    return ({ onSuccess, onFailure, onCompletion }: { onSuccess: any, onFailure: any, onCompletion: any }) => {
+        services.get(
+            routes.company.contacts
+        ).then(async (res) => {
+            if (res && res.data) {
+                const data = res.data.data
+                onSuccess(data)
+            }
+        }).catch((error) => {
+            displayErrorMessage(error, onFailure)
+        }).finally(() => {
+            onCompletion()
+        })
+    }
+}
+
 
 export const { Provider, Context } = createDataContext(
     appReducer,
     {
-        changePassword
+        changePassword, getCompanyContacts
     },
     { isAppLoading: true }
 )

@@ -1,15 +1,16 @@
 import createDataContext from './CreateDataContext'
 import { routes } from '../network/routes'
 import Service from '../network/services/httpService'
-import { storeUser, storeAuthToken, removeAuthToken, removeUser, getUser, storePasswordResetToken } from '../network/services/asyncStorageService'
+import { storeUser, storeAuthToken, removeAuthToken, removeUser, getUser } from '../network/services/asyncStorageService'
 import { appReducer } from './reducers/appReducer'
 import { initialUserState } from '../configs/constants'
 import { displayErrorMessage } from '../components/common/SharedHelper'
 import * as types from './actions'
+import { IUser } from '../interfaces'
 const services = new Service()
 
 const login = (dispatch: any) => {
-    return ({ payload, onSuccess, onFailure, onCompletion }: { payload: any, onSuccess: any, onFailure: any, onCompletion: any }) => {
+    return ({ payload, onSuccess, onFailure, onCompletion }: { payload: Partial<IUser>, onSuccess: Function, onFailure: Function, onCompletion: Function }) => {
         const endpoint = routes.login
         services.post(
             endpoint,
@@ -38,7 +39,7 @@ const login = (dispatch: any) => {
 }
 
 const register = (dispatch: any) => {
-    return ({ payload, onSuccess, onFailure, onCompletion }: { payload: any, onSuccess: any, onFailure: any, onCompletion: any }) => {
+    return ({ payload, onSuccess, onFailure, onCompletion }: { payload: Partial<IUser>, onSuccess: Function, onFailure: Function, onCompletion: Function }) => {
         services.post(
             routes.register,
             payload
@@ -77,7 +78,7 @@ const signout = (dispatch: any) => {
 }
 
 const updateUserState = (dispatch: any) => {
-    return async ({ onSuccess }: { onSuccess: any }) => {
+    return async ({ onSuccess }: { onSuccess: Function }) => {
         const user = await getUser()
         if (user && user.token) {
             dispatch({
@@ -90,7 +91,7 @@ const updateUserState = (dispatch: any) => {
 }
 
 const resetPassword = (dispatch: any) => {
-    return ({ payload, onSuccess, onFailure, onCompletion }: { payload: any, onSuccess: any, onFailure: any, onCompletion: any }) => {
+    return ({ payload, onSuccess, onFailure, onCompletion }: { payload: any, onSuccess: Function, onFailure: Function, onCompletion: Function }) => {
         const endpoint = routes.login
         services.post(
             endpoint,
@@ -120,7 +121,7 @@ const resetPassword = (dispatch: any) => {
 }
 
 const updateFcmToken = () => {
-    return ({ payload, onFailure }: { payload: any, onSuccess: any, onFailure: any, onCompletion: any }) => {
+    return ({ payload, onFailure }: { payload: any, onSuccess: Function, onFailure: Function, onCompletion: Function }) => {
         const endpoint = routes.login
         services.put(
             endpoint,

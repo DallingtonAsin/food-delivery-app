@@ -70,10 +70,9 @@ type Dish = {
 
 interface IContact {
     id: number;
-    name: string;
-    mobile_phone_no: string;
-    sms_phone_no: string;
-    whatsapp_number: string;
+    phoneNumber: string;
+    smsNumber: string;
+    whatsappNumber: string;
     email: string;
 }
 

@@ -2,8 +2,11 @@
 
 const routes = {
 
-   login: 'user/signin',
-   register: 'user/register'
+   login: 'users/signin',
+   register: 'users/register',
+   company: {
+      contacts: 'company-contacts/1',
+   }
 }
 
 export { routes }

@@ -1,21 +1,57 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text, FlatList, TouchableOpacity } from 'react-native'
 import * as configs from '../configs'
 import { callPhoneNumber, inboxWhatsappNumber, sendEmail, sendSms } from '../components/common/communications'
-import { IContactListItem } from '../interfaces'
+import { IContact, IContactListItem } from '../interfaces'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import AppLoader from '../components/AppLoader'
+import { useApp } from '../context'
+import { displayMessage } from '../components/common/SharedHelper'
 
 const HelpScreen = () => {
 
     const initialListData = [
-        { id: 1, type: 'Telephone', value: `+256774014727`, icon: 'phone-alt', method: callPhoneNumber },
-        { id: 2, type: 'SMS', value: `+256700477421`, icon: 'sms', method: sendSms },
-        { id: 3, type: 'Whatsap', value: `+2567867180`, icon: 'whatsapp', method: inboxWhatsappNumber },
-        { id: 4, type: 'Email', value: `info@pivosoft.com`, icon: 'envelope', method: sendEmail }
+        { id: 1, type: 'Telephone', value: ``, icon: 'phone-alt', method: callPhoneNumber },
+        { id: 2, type: 'SMS', value: ``, icon: 'sms', method: sendSms },
+        { id: 3, type: 'Whatsap', value: ``, icon: 'whatsapp', method: inboxWhatsappNumber },
+        { id: 4, type: 'Email', value: ``, icon: 'envelope', method: sendEmail }
     ]
     const [isLoading, setIsLoading] = useState(true)
+    const [refreshing, setRefreshing] = useState(false)
     const [listData, setListData] = useState<IContactListItem[]>(initialListData)
+    const { getCompanyContacts } = useApp()
+
+    const getContactInfo = () => {
+        getCompanyContacts({
+            onSuccess: onSuccess, onFailure: displayMessage, onCompletion: () => {
+                setIsLoading(false)
+                setRefreshing(false)
+            }
+        })
+    }
+
+    useEffect(() => {
+        getContactInfo()
+    }, [])
+
+    const onSuccess = (data: IContact) => {
+        const updatedData = listData.map(item => {
+            switch (item.id) {
+                case 1:
+                    return { ...item, value: data.phoneNumber };
+                case 2:
+                    return { ...item, value: data.smsNumber };
+                case 3:
+                    return { ...item, value: data.whatsappNumber };
+                case 4:
+                    return { ...item, value: data.email };
+                default:
+                    return item;
+            }
+        });
+        setListData(updatedData);
+    }
 
     const HelpCard = ({ item }: { item: IContactListItem }) => {
         return (
@@ -37,6 +73,10 @@ const HelpScreen = () => {
         )
     }
 
+    if (isLoading) {
+        return <AppLoader />
+    }
+
     return (
         <SafeAreaView className="flex-1 bg-white">
             <View className="flex-1">
@@ -48,6 +88,11 @@ const HelpScreen = () => {
                     showsVerticalScrollIndicator={false}
                     showsHorizontalScrollIndicator={false}
                     scrollEnabled={true}
+                    refreshing={refreshing}
+                    onRefresh={() => {
+                        setRefreshing(true)
+                        getContactInfo()
+                    }}
                     style={{ top: 20, bottom: 40 }} />
             </View>
         </SafeAreaView>
