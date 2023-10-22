@@ -47,5 +47,6 @@ export const colors = {
     blue: '#0036b2',
     successBadge: 'rgba(76, 175, 80, 0.8)',
     warningBagde: 'rgba(255, 215, 0, 0.8)',
-    palePurple: '#877dfa'
+    palePurple: '#877dfa',
+    onboardingColor: '#14b8a6', //  '#a7f3d0'
 }

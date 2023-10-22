@@ -19,7 +19,7 @@ const WelcomeScreen = () => {
 
     return (
         <SafeAreaView className="flex-1"
-            style={{ backgroundColor: colors.palePurple }}>
+            style={{ backgroundColor: colors.onboardingColor }}>
             <View className="flex-1 flex justify-around my-4">
                 <Text className="text-white font-bold text-4xl text-center">
                     Let's Get Started!
@@ -36,11 +36,12 @@ const WelcomeScreen = () => {
                     >
                         <Text className="text-xl font-bold text-center text-white">Sign in</Text>
                     </TouchableOpacity>
-                    <View className="flex-row justify-center">
-                        <Text className="text-white font-semibold">Don't have an account?</Text>
+                    <View>
                         <TouchableOpacity
+                            className="flex-row justify-center"
                             onPress={() => navigation.navigate('Register')}>
-                            <Text className="font-semibold text-yellow-400 ml-1">Register</Text>
+                            <Text className="text-white font-semibold">Don't have an account?</Text>
+                            <Text className="font-semibold text-yellow-300 ml-1">Register</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

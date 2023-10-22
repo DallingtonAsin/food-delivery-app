@@ -51,7 +51,7 @@ const SigninScreen = () => {
 
     return (
         <React.Fragment>
-            <View className="flex-1 bg-white" style={{ backgroundColor: configs.colors.palePurple }}>
+            <View className="flex-1 bg-white" style={{ backgroundColor: configs.colors.onboardingColor }}>
                 <StatusBar barStyle={'light-content'} />
                 <SafeAreaView className="flex-">
                     <View className="flex-row justify-start">
@@ -84,7 +84,7 @@ const SigninScreen = () => {
                             onChangeText={(text: string) => setState('password', text)}
                             secureTextEntry={true}
                         />
-                        <TouchableOpacity className="flex items-end mb-5">
+                        <TouchableOpacity className="flex items-end mb-3">
                             <Text className="text-gray-700">Forgot Password?</Text>
                         </TouchableOpacity>
 
@@ -111,10 +111,11 @@ const SigninScreen = () => {
                                 className="w-10 h-10" />
                         </TouchableOpacity>
                     </View>
-                    <View className="flex-row justify-center mt-3">
-                        <Text className="text-gray-500 font-semibold">Don't have an account?</Text>
+                    <View className="mt-3">
                         <TouchableOpacity
+                            className="flex-row justify-center"
                             onPress={() => navigation.navigate('Register')}>
+                            <Text className="text-gray-500 font-semibold">Don't have an account?</Text>
                             <Text className="font-semibold text-orange-400 ml-1">Register</Text>
                         </TouchableOpacity>
                     </View>

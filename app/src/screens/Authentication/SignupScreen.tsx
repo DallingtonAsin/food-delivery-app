@@ -36,7 +36,7 @@ const SignupScreen = () => {
             uniqueDeviceId: deviceId,
             ipAddress: ipAddress
         }
-        
+
         setIsLoading(true)
         register({ payload: user_details, onSuccess: onSuccess, onFailure: displayMessage, onCompletion: () => setIsLoading(false) })
     }
@@ -56,7 +56,7 @@ const SignupScreen = () => {
         <React.Fragment>
             <ScrollView className="flex-1 bg-white"
                 contentContainerStyle={{ flex: 1 }}
-                style={{ backgroundColor: configs.colors.palePurple }}>
+                style={{ backgroundColor: configs.colors.onboardingColor }}>
                 <SafeAreaView className="flex">
                     <View className="flex-row justify-start">
                         <TouchableOpacity
@@ -112,10 +112,11 @@ const SignupScreen = () => {
                                 className="w-10 h-10" />
                         </TouchableOpacity>
                     </View>
-                    <View className="flex-row justify-center mt-4">
-                        <Text className="text-gray-500 font-semibold">Already have an account?</Text>
+                    <View className="mt-4">
                         <TouchableOpacity
+                            className="flex-row justify-center"
                             onPress={() => navigation.navigate('Login')}>
+                            <Text className="text-gray-500 font-semibold">Already have an account?</Text>
                             <Text className="font-semibold text-orange-400 ml-1">Login</Text>
                         </TouchableOpacity>
                     </View>
