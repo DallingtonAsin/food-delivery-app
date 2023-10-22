@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TouchableOpacity, StyleSheet, StatusBar } from 'react-native'
+import { View, TouchableOpacity, StyleSheet, StatusBar, Alert } from 'react-native'
 import Iconf from 'react-native-vector-icons/FontAwesome5'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { Avatar, Text } from 'react-native-paper'
@@ -37,8 +37,20 @@ const DrawerScreen = (props: any) => {
         }
     }
 
-    const logout = async () => {
-        await signout()
+    const logout = () => {
+        Alert.alert(
+            `Oops!`,
+            `Are you sure you want to log out?`,
+            [
+                { text: 'Cancel', onPress: () => { } },
+                {
+                    text: 'Log out', onPress: async () => {
+                        await signout()
+                    }
+                }
+            ],
+            { cancelable: true }
+        )
     }
 
     return (

@@ -54,6 +54,12 @@ const BottomTabNavigator = () => {
         />
 
         <Tab.Screen
+          name="OrdersTabScreen"
+          component={HomeStack}
+          options={CustomTabComponent({ headerShown: false, headerTitle: 'My Orders', tabBarLabel: 'Orders', tabIcon: 'shopping-cart', onPressBackButton: navigateBack })}
+        />
+
+        <Tab.Screen
           name="HelpTabScreen"
           component={HomeStack}
           options={CustomTabComponent({ headerShown: false, headerTitle: 'Help', tabBarLabel: 'Help', tabIcon: 'question-circle', onPressBackButton: navigateBack })}
