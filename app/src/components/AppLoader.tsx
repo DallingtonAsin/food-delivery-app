@@ -2,8 +2,9 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { UIActivityIndicator } from 'react-native-indicators';
 import * as configs from '../configs';
+import { themeColors } from '../configs/themes';
 
-const AppLoader = ({ bgColor = 'rgba(0,0,0,0.3)', color = configs.colors.primary}: {bgColor?: string, color?: string}) => {
+const AppLoader = ({ bgColor = 'rgba(0,0,0,0.3)', color = themeColors.bgColor(1)}: {bgColor?: string, color?: string}) => {
     const styles = makeStyles(bgColor);
     return (
         <View style={[StyleSheet.absoluteFillObject, styles.container]}>

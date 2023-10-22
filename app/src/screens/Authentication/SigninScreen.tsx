@@ -12,6 +12,7 @@ import { IUser } from '../../interfaces'
 import { initialUser } from '../../configs/constants'
 import { validateUserLogin } from '../../components/common/validation'
 import { getDeviceId, getIpAddress } from 'react-native-device-info'
+import { themeColors } from '../../configs/themes'
 
 const SigninScreen = () => {
     const navigation = useNavigation<NativeStackNavigationProp<any>>()
@@ -51,8 +52,8 @@ const SigninScreen = () => {
 
     return (
         <React.Fragment>
-            <View className="flex-1 bg-white" style={{ backgroundColor: configs.colors.onboardingColor }}>
-                <StatusBar barStyle={'light-content'} />
+            <View className="flex-1 bg-white" style={{ backgroundColor: themeColors.bgColor(1) }}>
+                <StatusBar backgroundColor={themeColors.bgColor(1)} />
                 <SafeAreaView className="flex-">
                     <View className="flex-row justify-start">
                         <TouchableOpacity
@@ -90,7 +91,8 @@ const SigninScreen = () => {
 
                         <TouchableOpacity
                             onPress={submit}
-                            className="bg-orange-400 py-4 rounded-xl">
+                            style={{ backgroundColor: themeColors.secondaryColor(1) }}
+                            className="py-4 rounded-xl">
                             <Text className="font-xl font-bold text-center text-white">Login</Text>
                         </TouchableOpacity>
                     </View>

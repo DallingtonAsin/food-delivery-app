@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { Context as AuthContext } from '../context/AuthContext'
 import { colors } from '../configs'
 import BottomTabNavigator from "./BottomTabNavigator"
+import { themeColors } from "../configs/themes"
 
 const Stack = createNativeStackNavigator()
 
@@ -13,7 +14,7 @@ const headerOptions = (title: string, headerBackVisible: boolean = true, headerS
         headerStyle: {
             backgroundColor: colors.white,
         },
-        headerTintColor: colors.primary,
+        headerTintColor: themeColors.bgColor(1),
         headerTitle: title,
         headerBackVisible: headerBackVisible,
         headerShown: headerShown,

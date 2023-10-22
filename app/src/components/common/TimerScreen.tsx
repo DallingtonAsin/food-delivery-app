@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import * as config from '../../configs'
+import { themeColors } from '../../configs/themes';
 
 const TimerScreen = ({ seconds }: { seconds: number }) => {
 
@@ -17,7 +18,7 @@ const TimerScreen = ({ seconds }: { seconds: number }) => {
   
     return (
         <View style={{ marginVertical: 10 }}>
-            <Text style={{ fontSize: 24, color: config.colors.primary, fontWeight: 'bold' }}>{formatTime(seconds)}</Text>
+            <Text style={{ fontSize: 24, color: themeColors.bgColor(1), fontWeight: 'bold' }}>{formatTime(seconds)}</Text>
         </View>
     )
 }

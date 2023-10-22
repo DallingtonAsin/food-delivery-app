@@ -8,6 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import AppLoader from '../components/AppLoader'
 import { useApp } from '../context'
 import { displayMessage } from '../components/common/SharedHelper'
+import { themeColors } from '../configs/themes'
 
 const HelpScreen = () => {
 
@@ -59,7 +60,7 @@ const HelpScreen = () => {
                 className="flex-1 flex-row justify-between border-2 border-gray-200  rounded-lg p-2 mx-6 my-2"
                 onPress={() => item.method(item.value)}>
                 <View className="flex flex-row justify-center items-center">
-                    <Icon name={item.icon} size={25} color={configs.colors.primary} style={{ justifyContent: 'center', alignSelf: 'center' }} />
+                    <Icon name={item.icon} size={25} color={themeColors.bgColor(1)} style={{ justifyContent: 'center', alignSelf: 'center' }} />
                     <View className="h-10 w-0.5 bg-gray-300 mx-3"></View>
                     <View className="">
                         <Text className="text-lg font-normal">{item.type}</Text>
@@ -67,7 +68,7 @@ const HelpScreen = () => {
                     </View>
                 </View>
                 <View className="flex justify-center">
-                    <Icon name="angle-right" size={20} color={configs.colors.primary} />
+                    <Icon name="angle-right" size={20} color={themeColors.bgColor(1)} />
                 </View>
             </TouchableOpacity>
         )

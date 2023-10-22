@@ -2,6 +2,7 @@ import React from 'react'
 import Icon5 from 'react-native-vector-icons/FontAwesome5'
 import * as configs from '../../configs'
 import TabIconWithCount from './TabIconWithCount'
+import { themeColors } from '../../configs/themes'
 
 const CustomTabComponent = ({ headerShown = false, headerTitle, tabBarLabel, tabIcon, onPressBackButton, hasCount = false, count }:
   { headerShown?: boolean, tabBarLabel: string, headerTitle: string, tabIcon: string, onPressBackButton: any, hasCount?: boolean, count?: number }): any => ({
@@ -31,12 +32,12 @@ const CustomTabComponent = ({ headerShown = false, headerTitle, tabBarLabel, tab
         name="arrow-left"
         size={20}
         onPress={onPressBackButton}
-        style={{ marginLeft: 15, color: configs.colors.primary }}
+        style={{ marginLeft: 15, color: themeColors.bgColor(1) }}
       />
     ),
     title: headerTitle,
     headerTitleAlign: 'left',
-    headerTitleStyle: { color: configs.colors.primary, marginLeft: 20, fontWeight: 'normal' },
+    headerTitleStyle: { color: themeColors.bgColor(1), marginLeft: 20, fontWeight: 'normal' },
     tabBarLabel: tabBarLabel,
     tabBarLabelStyle: {
       fontSize: configs.fonts.normal

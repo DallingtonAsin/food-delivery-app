@@ -7,6 +7,7 @@ import { CustomTabComponent } from '../components/navigation/CustomTabComponent'
 import { MultiBarProvider, BottomTabBarWrapper } from 'react-native-multibar'
 import HomeStack from './screen-stacks/HomeStack'
 import HelpScreen from '../screens/HelpScreen'
+import { themeColors } from '../configs/themes'
 
 const BottomTabNavigator = () => {
 
@@ -30,7 +31,7 @@ const BottomTabNavigator = () => {
         screenOptions={{
           headerShown: false,
           tabBarShowLabel: true,
-          tabBarActiveTintColor: configs.colors.primary,
+          tabBarActiveTintColor: themeColors.bgColor(1),
           tabBarInactiveTintColor: configs.colors.dark,
           tabBarStyle: {
             backgroundColor: configs.colors.white,

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, TouchableOpacity, ScrollView, SafeAreaView, Image } from 'react-native'
+import { View, Text, TouchableOpacity, ScrollView, SafeAreaView, Image, StatusBar } from 'react-native'
 import * as configs from '../../configs'
 import * as Icon from "react-native-feather"
 import { useNavigation } from "@react-navigation/native"
@@ -12,6 +12,7 @@ import { IUser } from '../../interfaces'
 import { initialUser } from '../../configs/constants'
 import AppLoader from '../../components/AppLoader'
 import { getDeviceId, getIpAddress } from 'react-native-device-info'
+import { themeColors } from '../../configs/themes'
 
 const SignupScreen = () => {
 
@@ -56,7 +57,8 @@ const SignupScreen = () => {
         <React.Fragment>
             <ScrollView className="flex-1 bg-white"
                 contentContainerStyle={{ flex: 1 }}
-                style={{ backgroundColor: configs.colors.onboardingColor }}>
+                style={{ backgroundColor: themeColors.bgColor(1) }}>
+                    <StatusBar backgroundColor={themeColors.bgColor(1)} />
                 <SafeAreaView className="flex">
                     <View className="flex-row justify-start">
                         <TouchableOpacity
@@ -91,7 +93,10 @@ const SignupScreen = () => {
                             secureTextEntry={true}
                             onChangeText={(text: string) => setState('password', text)}
                         />
-                        <TouchableOpacity onPress={submit} className="bg-orange-400 py-4 rounded-xl">
+                        <TouchableOpacity
+                            onPress={submit}
+                            style={{ backgroundColor: themeColors.secondaryColor(1) }}
+                            className="py-4 rounded-xl">
                             <Text className="font-xl font-bold text-center text-white">Signup</Text>
                         </TouchableOpacity>
                     </View>

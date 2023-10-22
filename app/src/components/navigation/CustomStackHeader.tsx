@@ -2,12 +2,13 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import * as config from '../../configs';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
+import { themeColors } from '../../configs/themes';
 
 const CustomStackHeader = ({ title, onPress }: { title: string, onPress: any }) => {
     return (
         <View style={styles.header}>
             <TouchableOpacity onPress={onPress} style={{ position: 'absolute', left: 18 }}>
-                <Icon5 name="arrow-left" size={20} color={config.colors.primary} />
+                <Icon5 name="arrow-left" size={20} color={themeColors.bgColor(1)} />
             </TouchableOpacity>
             <Text style={styles.headerText}>{title}</Text>
         </View>
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
     headerText: {
         fontSize: config.fonts.extraLarge,
         fontWeight: '600',
-        color: config.colors.primary,
+        color: themeColors.bgColor(1),
         marginLeft: 70
     }
 });

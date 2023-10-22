@@ -1,11 +1,12 @@
 import React, { TouchableOpacity, StyleSheet, ViewStyle } from "react-native"
 import * as config from '../../configs'
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
+import { themeColors } from "../../configs/themes";
 
 const CircularButton = ({ icon = 'plus',
     size = 20,
     iconColor = config.colors.white,
-    backgroundColor = config.colors.primary,
+    backgroundColor = themeColors.bgColor(1),
     btnStyle,
     onPress
 }: { icon?: string, size?: number, iconColor?: string, backgroundColor?: string, btnStyle?: ViewStyle, onPress: any }) => (
@@ -18,7 +19,7 @@ const BottomRightButton = ({
     icon = 'plus',
     size = 20,
     iconColor = config.colors.white,
-    backgroundColor = config.colors.primary,
+    backgroundColor = themeColors.bgColor(1),
     btnStyle,
     onPress
 }: { icon?: string, size?: number, iconColor?: string, backgroundColor?: string, btnStyle?: ViewStyle, onPress: any }) => (
@@ -27,7 +28,7 @@ const BottomRightButton = ({
     </TouchableOpacity>
 );
 
-const circularBtn = (backgroundColor = config.colors.primary): ViewStyle => {
+const circularBtn = (backgroundColor = themeColors.bgColor(1)): ViewStyle => {
     return {
         width: 50,
         height: 50,
@@ -38,7 +39,7 @@ const circularBtn = (backgroundColor = config.colors.primary): ViewStyle => {
     }
 }
 
-const circularBottomRightBtn = (backgroundColor = config.colors.primary): ViewStyle => {
+const circularBottomRightBtn = (backgroundColor = themeColors.bgColor(1)): ViewStyle => {
     return {
         width: 50,
         height: 50,

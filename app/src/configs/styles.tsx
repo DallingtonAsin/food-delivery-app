@@ -2,6 +2,7 @@ import { Dimensions } from 'react-native';
 import { colors, } from './colors';
 import { fonts } from './fonts'
 import * as configs from "./index";
+import { themeColors } from './themes';
 
 const {width, height} = Dimensions.get('window');
 const cardWidth = width / 1.8;
@@ -22,8 +23,8 @@ export const styles = {
 
   primaryBtn: {
     ...reusable.button,
-    backgroundColor: colors.primary,
-    borderColor: colors.primary,
+    backgroundColor: themeColors.bgColor(1),
+    borderColor: themeColors.bgColor(1),
     alignItems: 'center',
     alignSelf: 'center'
   },
@@ -31,7 +32,7 @@ export const styles = {
   secondaryBtn: {
     ...reusable.button,
     backgroundColor: colors.white,
-    borderColor: colors.primary,
+    borderColor: themeColors.bgColor(1),
     alignItems: 'center',
   },
 
@@ -65,7 +66,7 @@ export const styles = {
   },
 
   btnText: {
-    color: colors.primary,
+    color: themeColors.bgColor(1),
     fontSize: fonts.large,
   },
 
@@ -75,14 +76,14 @@ export const styles = {
   },
 
   secondaryBtnText: {
-    color: colors.primary,
+    color: themeColors.bgColor(1),
     fontSize: fonts.large,
   },
 
   logo: {
     borderColor: colors.white,
     borderWidth: 0,
-    tintColor: colors.primary
+    tintColor: themeColors.bgColor(1)
   },
 
   userAvatar: {
@@ -172,7 +173,7 @@ export const styles = {
 
   callBtn: {
     color: colors.white,
-    backgroundColor: colors.primary,
+    backgroundColor: themeColors.bgColor(1),
     width: 50,
     height: 50,
     borderRadius: 25,
@@ -249,7 +250,7 @@ export const styles = {
       },
 
       back2LoginTxt: {
-        color: colors.primary,
+        color: themeColors.bgColor(1),
         fontSize: 18,
         textAlign: 'center',
       },
@@ -308,7 +309,7 @@ export const styles = {
   priceTag: {
     height: 60,
     width: 80,
-    backgroundColor: colors.primary,
+    backgroundColor: themeColors.bgColor(1),
     position: 'absolute',
     zIndex: 1,
     right: 0,
@@ -337,7 +338,7 @@ export const styles = {
   topHotelCard: {
     height: eventCardHeight/1.7,
     width: eventCardWidth/3,
-    backgroundColor: colors.primary,
+    backgroundColor: themeColors.bgColor(1),
     // elevation: 15,
     marginHorizontal: 10,
     // borderRadius: 10,
