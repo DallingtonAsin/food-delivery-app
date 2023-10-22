@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { useEffect } from "react"
 import { setItem } from "../async-storage"
+import { themeColors } from "../configs/themes"
 
 const WelcomeScreen = () => {
 
@@ -30,9 +31,10 @@ const WelcomeScreen = () => {
                 <View className="space-y-4">
                     <TouchableOpacity
                         className="mx-7 py-3 bg-yellow-400 rounded-xl"
+                        style={{ backgroundColor: themeColors.bgColor(1) }}
                         onPress={() => navigation.navigate('Login')}
                     >
-                        <Text className="text-xl font-bold text-center text-gray-700">Sign in</Text>
+                        <Text className="text-xl font-bold text-center text-white">Sign in</Text>
                     </TouchableOpacity>
                     <View className="flex-row justify-center">
                         <Text className="text-white font-semibold">Don't have an account?</Text>

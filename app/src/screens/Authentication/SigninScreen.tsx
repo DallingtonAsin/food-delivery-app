@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, TouchableOpacity, SafeAreaView, Image } from 'react-native'
+import { View, Text, TouchableOpacity, SafeAreaView, Image, StatusBar } from 'react-native'
 import * as configs from '../../configs'
 import * as Icon from "react-native-feather"
 import { useNavigation } from "@react-navigation/native"
@@ -9,6 +9,7 @@ import Toast from 'react-native-simple-toast'
 import { useAuth } from '../../context'
 import { displayMessage } from '../../components/common/SharedHelper'
 import AppLoader from '../../components/AppLoader'
+import { themeColors } from '../../configs/themes'
 
 const SigninScreen = () => {
     const navigation = useNavigation<NativeStackNavigationProp<any>>()
@@ -40,12 +41,13 @@ const SigninScreen = () => {
     return (
         <>
             <View className="flex-1 bg-white" style={{ backgroundColor: configs.colors.palePurple }}>
+                <StatusBar barStyle={'light-content'}/>
                 <SafeAreaView className="flex-">
                     <View className="flex-row justify-start">
                         <TouchableOpacity
                             onPress={() => navigation.goBack()}
-                            className="bg-yellow-400 p-2 rounded-tr-2xl rounded-bl-2xl ml-4 mt-2">
-                            <Icon.ArrowLeft strokeWidth={2} stroke={configs.colors.black} />
+                            className="bg-orange-400 p-2 rounded-tr-2xl rounded-bl-2xl ml-4 mt-2">
+                            <Icon.ArrowLeft strokeWidth={2} stroke={configs.colors.white} />
                         </TouchableOpacity>
                     </View>
                     <View className="flex-row justify-center">
@@ -76,11 +78,11 @@ const SigninScreen = () => {
 
                         <TouchableOpacity
                             onPress={submit}
-                            className="bg-yellow-400 py-3 rounded-xl">
-                            <Text className="font-xl font-bold text-center text-gray-700">Login</Text>
+                            className="bg-orange-400 py-4 rounded-xl">
+                            <Text className="font-xl font-bold text-center text-white">Login</Text>
                         </TouchableOpacity>
                     </View>
-                    <Text className="text-xl font-bold text-gray-700 text-center py-5">
+                    <Text className="text-xl font-bold text-gray-700 text-center py-4">
                         Or
                     </Text>
                     <View className="flex-row justify-center space-x-12">
@@ -97,11 +99,11 @@ const SigninScreen = () => {
                                 className="w-10 h-10" />
                         </TouchableOpacity>
                     </View>
-                    <View className="flex-row justify-center mt-4">
+                    <View className="flex-row justify-center mt-3">
                         <Text className="text-gray-500 font-semibold">Don't have an account?</Text>
                         <TouchableOpacity
                             onPress={() => navigation.navigate('Register')}>
-                            <Text className="font-semibold text-yellow-500 ml-1">Register</Text>
+                            <Text className="font-semibold text-orange-400 ml-1">Register</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

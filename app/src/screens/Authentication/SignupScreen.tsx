@@ -17,8 +17,8 @@ const SignupScreen = () => {
                 <View className="flex-row justify-start">
                     <TouchableOpacity
                         onPress={() => navigation.goBack()}
-                        className="bg-yellow-400 p-2 rounded-tr-2xl rounded-bl-2xl ml-4 mt-2">
-                        <Icon.ArrowLeft strokeWidth={2} stroke={configs.colors.black} />
+                        className="bg-orange-400 p-2 rounded-tr-2xl rounded-bl-2xl ml-4 mt-2">
+                        <Icon.ArrowLeft strokeWidth={2} stroke={configs.colors.white} />
                     </TouchableOpacity>
                 </View>
                 <View className="flex-row justify-center">
@@ -43,8 +43,8 @@ const SignupScreen = () => {
                     <TextInput className="p-4 bg-gray-100 text-gray-700 rounded-2xl mb-3"
                         placeholder="Enter password"
                     />
-                    <TouchableOpacity className="bg-yellow-400 py-3 rounded-xl">
-                        <Text className="font-xl font-bold text-center text-gray-700">Signup</Text>
+                    <TouchableOpacity className="bg-orange-400 py-4 rounded-xl">
+                        <Text className="font-xl font-bold text-center text-white">Signup</Text>
                     </TouchableOpacity>
                 </View>
                 <Text className="text-xl font-bold text-gray-700 text-center py-5">
@@ -68,7 +68,7 @@ const SignupScreen = () => {
                     <Text className="text-gray-500 font-semibold">Already have an account?</Text>
                     <TouchableOpacity
                         onPress={() => navigation.navigate('Login')}>
-                        <Text className="font-semibold text-yellow-500 ml-1">Login</Text>
+                        <Text className="font-semibold text-orange-400 ml-1">Login</Text>
                     </TouchableOpacity>
                 </View>
             </View>
