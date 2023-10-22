@@ -6,32 +6,25 @@ interface AppAction {
 }
 
 interface IUser {
-    id?: number,
-    first_name: string,
-    last_name: string,
-    specialty?: string,
-    specialty_id?: number,
-    email?: string,
-    country_code?: string,
-    phone_number?: string,
-    dob: string,
-    gender: string,
-    address?: string,
-    primary_facility?: string,
-    primary_facility_id?: number,
-    other_facilities?: number[],
-    is_individual?: boolean,
-    qualification?: string,
-    training_institute?: string,
-    umdp_license_id?: string,
-    bio_summary?: string,
-    service_fee?: string,
-    otp?: string,
-    image?: string,
-    is_patient?: boolean,
-    profile_status?: boolean,
-    is_registered?: boolean,
-    is_verified?: boolean,
+    id?: number;
+    name?: string;
+    email?: string;
+    countryCode?: string;
+    phoneNumber?: string;
+    isPhoneVerified?: Boolean;
+    password?: string;
+    otp?: string | null;
+    photo?: string;
+    profileStatus?: Boolean;
+    newCountryCode?: string;
+    newPhoneNumber?: string;
+    uniqueDeviceId?: string;
+    currentVersion?: string;
+    userIpAddress?: string;
+    serverIpAddress?: string;
+    lastActivityDate?: Date;
+    isBlocked?: Boolean;
+    isDeleted?: Boolean;
 }
 
 interface SignedinUser {
@@ -78,5 +71,5 @@ type Dish = {
 type GroupedItems = Record<string, Dish[]>;
 
 export type {
-    AppAction, SignedinUser, Drug, Notification, Category, GroupedItems
+    AppAction, SignedinUser, Drug, Notification, Category, GroupedItems, IUser
 }

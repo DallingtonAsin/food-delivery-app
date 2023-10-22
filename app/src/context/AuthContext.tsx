@@ -18,8 +18,6 @@ const login = (dispatch: any) => {
             if (res && res.data) {
 
                 const user = res.data.data
-                console.log(`signin token`, user.token)
-
                 const token = user.token
                 await storeUser(user)
                 await storeAuthToken(token)
@@ -29,7 +27,7 @@ const login = (dispatch: any) => {
                     payload: user
                 })
 
-                onSuccess(user)
+                onSuccess()
             }
         }).catch((error) => {
             displayErrorMessage(error, onFailure)
@@ -47,7 +45,7 @@ const register = (dispatch: any) => {
         ).then(async (res) => {
             if (res && res.data) {
 
-                const user = res.data
+                const user = res.data.data
                 const token = user.token
                 await storeUser(user)
                 await storeAuthToken(token)
@@ -57,7 +55,7 @@ const register = (dispatch: any) => {
                     payload: user
                 })
 
-                onSuccess(user)
+                onSuccess()
             }
         }).catch((error) => {
             displayErrorMessage(error, onFailure)

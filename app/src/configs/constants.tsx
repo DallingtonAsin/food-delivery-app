@@ -1,4 +1,4 @@
-import { SignedinUser } from "../interfaces"
+import { IUser, SignedinUser } from "../interfaces"
 
 const organisation = {
   links: {
@@ -8,17 +8,26 @@ const organisation = {
   }
 }
 
-const initialUser = {
-  first_name: '',
-  last_name: '',
+const initialUser: IUser = {
+  id: 0,
+  name: '',
   email: '',
-  country_code: '',
-  phone_number: '',
-  dob: '',
-  gender: '',
-  address: '',
+  countryCode: '',
+  phoneNumber: '',
+  isPhoneVerified: false,
+  password: '',
   otp: '',
-  profile_status: false,
+  photo: '',
+  profileStatus: false,
+  newCountryCode: '',
+  newPhoneNumber: '',
+  uniqueDeviceId: '',
+  currentVersion: '',
+  userIpAddress: '',
+  serverIpAddress: '',
+  isBlocked: false,
+  isDeleted: false
+
 }
 
 const initialUserState: SignedinUser = {
@@ -47,4 +56,4 @@ const drawerScreenItems = [
   },
 ]
 
-export { organisation, initialUserState, drawerScreenItems }
+export { organisation, initialUser, initialUserState, drawerScreenItems }

@@ -5,42 +5,54 @@ import * as Icon from "react-native-feather"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { TextInput } from 'react-native'
-import Toast from 'react-native-simple-toast'
 import { useAuth } from '../../context'
 import { displayMessage } from '../../components/common/SharedHelper'
 import AppLoader from '../../components/AppLoader'
+import { IUser } from '../../interfaces'
+import { initialUser } from '../../configs/constants'
+import { validateUserLogin } from '../../components/common/validation'
+import { getDeviceId, getIpAddress } from 'react-native-device-info'
 
 const SigninScreen = () => {
     const navigation = useNavigation<NativeStackNavigationProp<any>>()
     const [isLoading, setIsLoading] = useState(false)
-    const [email, setEmail] = useState<string>('')
-    const [password, setPassword] = useState<string>('')
+    const [user, setUser] = useState<IUser>(initialUser)
     const { login } = useAuth()
 
     const submit = async () => {
-        if (!email) {
-            Toast.show(`Enter your email address`, Toast.LONG)
+        const validationError = validateUserLogin(user)
+        if (validationError) {
+            displayMessage(validationError)
+            return
         }
-        if (!password) {
-            Toast.show(`Enter your password`, Toast.LONG)
-        }
+        const deviceId = await getDeviceId()
+        const ipAddress = await getIpAddress()
+
         const credentials = {
-            email: email,
-            password: password
+            email: user.email,
+            password: user.password,
+            uniqueDeviceId: deviceId,
+            ipAddress: ipAddress
         }
         setIsLoading(true)
         login({ payload: credentials, onSuccess: onSuccess, onFailure: displayMessage, onCompletion: () => setIsLoading(false) })
     }
 
     const onSuccess = () => {
-        setEmail('')
-        setPassword('')
+        setUser(initialUser)
+    }
+
+    const setState = (field: string, text: any) => {
+        setUser((prev: any) => ({
+            ...prev,
+            [field]: text,
+        }))
     }
 
     return (
-        <>
+        <React.Fragment>
             <View className="flex-1 bg-white" style={{ backgroundColor: configs.colors.palePurple }}>
-                <StatusBar barStyle={'light-content'}/>
+                <StatusBar barStyle={'light-content'} />
                 <SafeAreaView className="flex-">
                     <View className="flex-row justify-start">
                         <TouchableOpacity
@@ -62,14 +74,15 @@ const SigninScreen = () => {
                         <Text className="text-gray-700 ml-4">Email address</Text>
                         <TextInput className="p-4 bg-gray-100 text-gray-700 rounded-2xl mb-3"
                             placeholder="Enter email"
-                            value={email}
-                            onChangeText={(text: string) => setEmail(text)}
+                            value={user.email}
+                            onChangeText={(text: string) => setState('email', text)}
                         />
                         <Text className="text-gray-700 ml-4">Password</Text>
                         <TextInput className="p-4 bg-gray-100 text-gray-700 rounded-2xl"
                             placeholder="Enter password"
-                            value={password}
-                            onChangeText={(text: string) => setPassword(text)}
+                            value={user.password}
+                            onChangeText={(text: string) => setState('password', text)}
+                            secureTextEntry={true}
                         />
                         <TouchableOpacity className="flex items-end mb-5">
                             <Text className="text-gray-700">Forgot Password?</Text>
@@ -108,7 +121,7 @@ const SigninScreen = () => {
                 </View>
             </View>
             {isLoading && <AppLoader />}
-        </>
+        </React.Fragment>
     )
 }
 

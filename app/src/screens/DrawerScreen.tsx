@@ -39,7 +39,6 @@ const DrawerScreen = (props: any) => {
 
     const logout = async () => {
         await signout()
-        props.navigation.navigate('Onboarding')
     }
 
     return (
@@ -65,9 +64,8 @@ const DrawerScreen = (props: any) => {
                             style={{ fontSize: 18 }} >
                             {name}
                         </Text>
-                        {/* <Text className="font-extrabold text-white" style={{ fontSize: 16 }}>{email}</Text> */}
+                        <Text className="font-light italic text-white">{email}</Text>
                     </View>
-
 
                     <View className="w-100 h-100 items-center pt-5">
                         <View style={{ width: '100%' }}>
