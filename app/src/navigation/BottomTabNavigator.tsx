@@ -6,6 +6,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { CustomTabComponent } from '../components/navigation/CustomTabComponent'
 import { MultiBarProvider, BottomTabBarWrapper } from 'react-native-multibar'
 import HomeStack from './screen-stacks/HomeStack'
+import HelpScreen from '../screens/HelpScreen'
 
 const BottomTabNavigator = () => {
 
@@ -61,8 +62,8 @@ const BottomTabNavigator = () => {
 
         <Tab.Screen
           name="HelpTabScreen"
-          component={HomeStack}
-          options={CustomTabComponent({ headerShown: false, headerTitle: 'Help', tabBarLabel: 'Help', tabIcon: 'question-circle', onPressBackButton: navigateBack })}
+          component={HelpScreen}
+          options={CustomTabComponent({ headerShown: true, headerTitle: 'Help', tabBarLabel: 'Help', tabIcon: 'question-circle', onPressBackButton: navigateBack })}
         />
 
       </Tab.Navigator>

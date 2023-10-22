@@ -68,8 +68,28 @@ type Dish = {
     image: any;
 };
 
+interface IContact {
+    id: number;
+    name: string;
+    mobile_phone_no: string;
+    sms_phone_no: string;
+    whatsapp_number: string;
+    email: string;
+}
+
+interface IContactListItem {
+    id: number,
+    type: string,
+    value: string,
+    icon: string,
+    method: Function
+}
+
+
+
 type GroupedItems = Record<string, Dish[]>;
 
 export type {
-    AppAction, SignedinUser, Drug, Notification, Category, GroupedItems, IUser
+    AppAction, SignedinUser, Drug, Notification, Category, GroupedItems, IUser, 
+    IContact, IContactListItem
 }
