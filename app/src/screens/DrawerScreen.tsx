@@ -11,6 +11,7 @@ import * as Icon from "react-native-feather"
 import { drawerScreenItems } from '../configs/constants'
 import { themeColors } from '../configs/themes'
 import { removeItem } from '../async-storage'
+import { useAuth } from '../context'
 
 const url = `https://pivosoft.com`
 const title = `Download ${APP_NAME}`
@@ -24,6 +25,9 @@ const options = {
 const iconSize = 20
 
 const DrawerScreen = (props: any) => {
+
+    const { state } = useAuth()
+    const { name, email, countryCode, phoneNumber } = state.user
 
     const share = async (customOptions = options) => {
         try {
@@ -59,9 +63,9 @@ const DrawerScreen = (props: any) => {
                         <Text
                             className="font-extrabold text-white mt-3"
                             style={{ fontSize: 18 }} >
-                            {`Dallington`} {`Asingwire`}
+                            {name}
                         </Text>
-                        <Text className="font-extrabold text-white" style={{ fontSize: 16 }}>{`+256774014727`}</Text>
+                        <Text className="font-extrabold text-white" style={{ fontSize: 16 }}>{email}</Text>
                     </View>
 
 

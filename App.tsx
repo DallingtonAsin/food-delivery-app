@@ -1,23 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import AuthStack from './app/src/navigation/AuthStack'
 import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux'
-import { Provider as AuthProvider } from './app/src/context/authContext'
-import { Provider as AppProvider } from './app/src/context/appContext'
+import { Provider as AuthProvider } from './app/src/context/AuthContext'
+import { Provider as AppProvider } from './app/src/context/AppContext'
 import { store, persistor } from './app/src/redux/store'
 import AppDrawerStack from './app/src/navigation/AppDrawerStack'
+import { useAuth } from './app/src/context'
 const Stack = createNativeStackNavigator()
 
 function App(): JSX.Element {
 
-  const [token, setToken] = useState('')
+  const { state } = useAuth()
+  console.log(`current state`, state)
 
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="AuthStack">
-        {token ? (
+        {state.token ? (
           <Stack.Group screenOptions={{ headerShown: false }}>
             <Stack.Screen name="SignedInStack" component={AppDrawerStack} />
           </Stack.Group>

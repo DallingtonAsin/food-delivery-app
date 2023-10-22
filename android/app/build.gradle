@@ -114,26 +114,26 @@ android {
         }
     }
 
-     flavorDimensions "default"
+    flavorDimensions "default"
     productFlavors {
 
         development {
-            minSdkVersion rootProject.ext.minSdkVersion
             applicationId "com.agriconnect"
+            minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             resValue "string", "build_config_package", "com.agriconnect"
         }
 
         staging {
-            minSdkVersion rootProject.ext.minSdkVersion
             applicationId "com.agriconnect"
+            minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             resValue "string", "build_config_package", "com.agriconnect"
         }
 
         production {
-            minSdkVersion rootProject.ext.minSdkVersion
             applicationId "com.agriconnect"
+            minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             resValue "string", "build_config_package", "com.agriconnect"
         }

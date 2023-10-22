@@ -2,12 +2,14 @@ import axios from 'axios';
 import { API_URL } from '@env';
 import { getAccessToken, getAuthToken } from './asyncStorageService';
 
+console.log(`API_URL`, API_URL)
+
 class Service {
 
   private baseUrl: string = '';
 
   constructor() {
-    this.baseUrl = `${API_URL}/api/`
+    this.baseUrl = `${API_URL}/api/v1/`
   }
 
   request = () => {

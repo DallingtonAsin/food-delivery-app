@@ -30,15 +30,15 @@ const WelcomeScreen = () => {
                 <View className="space-y-4">
                     <TouchableOpacity
                         className="mx-7 py-3 bg-yellow-400 rounded-xl"
-                        onPress={() => navigation.navigate('Register')}
+                        onPress={() => navigation.navigate('Login')}
                     >
-                        <Text className="text-xl font-bold text-center text-gray-700">Sign up</Text>
+                        <Text className="text-xl font-bold text-center text-gray-700">Sign in</Text>
                     </TouchableOpacity>
                     <View className="flex-row justify-center">
-                        <Text className="text-white font-semibold">Already have an account?</Text>
+                        <Text className="text-white font-semibold">Don't have an account?</Text>
                         <TouchableOpacity
-                            onPress={() => navigation.navigate('Login')}>
-                            <Text className="font-semibold text-yellow-400 ml-1">Login</Text>
+                            onPress={() => navigation.navigate('Register')}>
+                            <Text className="font-semibold text-yellow-400 ml-1">Register</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

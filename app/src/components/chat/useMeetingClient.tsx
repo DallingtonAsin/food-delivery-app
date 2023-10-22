@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { Context as AppContext } from '../../context/appContext'
+import { Context as AppContext } from '../../context/AppContext'
 import { Context as PatientContext } from '../../context/patientContext'
 import { displayMessage } from '../common/SharedHelper'
 import { requestAudioPermission } from '../common/Permissions'

@@ -10,8 +10,10 @@ const SignupScreen = () => {
     const navigation = useNavigation<NativeStackNavigationProp<any>>()
 
     return (
-        <ScrollView className="flex-1 bg-white" style={{ backgroundColor: configs.colors.palePurple }}>
-            <SafeAreaView className="flex-">
+        <ScrollView className="flex-1 bg-white"
+            contentContainerStyle={{ flex: 1 }}
+            style={{ backgroundColor: configs.colors.palePurple }}>
+            <SafeAreaView className="flex">
                 <View className="flex-row justify-start">
                     <TouchableOpacity
                         onPress={() => navigation.goBack()}
@@ -33,10 +35,6 @@ const SignupScreen = () => {
                     <TextInput className="p-4 bg-gray-100 text-gray-700 rounded-2xl mb-3"
                         placeholder="Enter name"
                     />
-                    <Text className="text-gray-700 ml-4">Phone Number</Text>
-                    <TextInput className="p-4 bg-gray-100 text-gray-700 rounded-2xl mb-3"
-                        placeholder="Enter phone number"
-                    />
                     <Text className="text-gray-700 ml-4">Email</Text>
                     <TextInput className="p-4 bg-gray-100 text-gray-700 rounded-2xl mb-3"
                         placeholder="Enter email"
@@ -44,10 +42,6 @@ const SignupScreen = () => {
                     <Text className="text-gray-700 ml-4">Password</Text>
                     <TextInput className="p-4 bg-gray-100 text-gray-700 rounded-2xl mb-3"
                         placeholder="Enter password"
-                    />
-                    <Text className="text-gray-700 ml-4">Confirm Password</Text>
-                    <TextInput className="p-4 bg-gray-100 text-gray-700 rounded-2xl mb-7"
-                        placeholder="Confirm password"
                     />
                     <TouchableOpacity className="bg-yellow-400 py-3 rounded-xl">
                         <Text className="font-xl font-bold text-center text-gray-700">Signup</Text>

@@ -2,7 +2,7 @@ interface AppAction {
     type: string;
     payload?: any;
     authorization?: string;
-    access_token?: string
+    token?: string
 }
 
 interface IUser {

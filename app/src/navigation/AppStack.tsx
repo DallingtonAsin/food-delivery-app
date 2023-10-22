@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Context as AuthContext } from '../context/authContext'
+import { Context as AuthContext } from '../context/AuthContext'
 import { colors } from '../configs'
 import BottomTabNavigator from "./BottomTabNavigator"
 

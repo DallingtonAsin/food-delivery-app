@@ -13,8 +13,8 @@ export default (reducer: any, action: any, defaultValue: any) => {
 
         useEffect(() => {
             async function rehydrate() {
-                const auth_token = await getAuthToken();
-                if (auth_token) {
+                const token = await getAuthToken();
+                if (token) {
                     const user = await getUser()
                     if (user && user.access_token) {
                         dispatch({
