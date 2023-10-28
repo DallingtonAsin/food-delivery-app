@@ -4,19 +4,26 @@ import * as Icon from "react-native-feather"
 import { themeColors } from '../configs/themes'
 import Categories from '../components/Categories'
 import FeaturedRow from '../components/FeaturedRow'
-import { getFeaturedRestaurants } from '../server/api'
 import AppLoader from '../components/AppLoader'
+import { useProduct } from '../context'
+import { displayErrorMessage } from '../components/common/SharedHelper'
 
 const HomeScreen = () => {
 
     const [featuredRestaurants, setFeaturedRestaurants] = useState<any>([])
     const [isLoading, setIsLoading] = useState(true)
+    const { getFeaturedRestaurants } = useProduct()
+
+    const fetchFeaturedRestaurants = () => {
+        getFeaturedRestaurants({ onSuccess: onSuccess, onFailure: displayErrorMessage, onCompletion: () => setIsLoading(false) })
+    }
+
+    const onSuccess = (restaurants: any) => {
+        setFeaturedRestaurants(restaurants)
+    }
 
     useEffect(() => {
-        getFeaturedRestaurants().then((restaurants: any) => {
-            setFeaturedRestaurants(restaurants)
-            setIsLoading(false)
-        })
+        fetchFeaturedRestaurants()
     }, [])
 
     return (

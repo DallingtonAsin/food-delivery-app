@@ -1,18 +1,26 @@
 import { ScrollView, TouchableOpacity, View, Text, Image } from "react-native"
 import { useEffect, useState } from "react"
-import { getCategories } from "../server/api"
 import { Category } from "../interfaces"
 import { urlFor } from "../server/sanity"
+import { useProduct } from "../context"
+import { displayErrorMessage } from "./common/SharedHelper"
 
 const Categories = () => {
 
     const [categories, setCategories] = useState([])
     const [activeCategory, setActiveCategory] = useState<number | null>(null)
+    const { getProductCategories } = useProduct()
+
+    const getCategories = () => {
+        getProductCategories({ onSuccess: onSuccess, onFailure: displayErrorMessage, onCompletion: () => { } })
+    }
+
+    const onSuccess = (categories: any) => {
+        setCategories(categories)
+    }
 
     useEffect(() => {
-        getCategories().then((data: any) => {
-            setCategories(data)
-        })
+        getCategories()
     }, [])
 
     return (

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, FlatList, TouchableOpacity } from 'react-native'
-import * as configs from '../configs'
 import { callPhoneNumber, inboxWhatsappNumber, sendEmail, sendSms } from '../components/common/communications'
 import { IContact, IContactListItem } from '../interfaces'
 import Icon from 'react-native-vector-icons/FontAwesome5'

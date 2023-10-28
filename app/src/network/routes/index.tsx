@@ -6,6 +6,10 @@ const routes = {
    register: 'users/register',
    company: {
       contacts: 'company-contacts/1',
+   },
+   product: {
+      categories: 'categories',
+      featured_restaurants: 'featured-restaurants'
    }
 }
 

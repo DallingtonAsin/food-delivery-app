@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { contextMethods } from "./actions/contextMethods"
 import { Context as AuthContext } from '../context/AuthContext'
 import { Context as AppContext } from '../context/AppContext'
+import { Context as ProductContext } from '../context/ProductContext'
 
 const createContext = (defaultValue: any) => {
     const appContext = React.createContext({
@@ -13,5 +14,6 @@ const createContext = (defaultValue: any) => {
 
 const useAuth = () => useContext(AuthContext)
 const useApp = () => useContext(AppContext)
+const useProduct = () => useContext(ProductContext)
 
-export { createContext, useAuth, useApp }
+export { createContext, useAuth, useApp, useProduct }
